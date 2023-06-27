@@ -1,0 +1,10 @@
+node_modules/
+testfront/
+testback/
+
+.env
+.DS_Store
+
+.parcel-cache/
+
+Dist/
