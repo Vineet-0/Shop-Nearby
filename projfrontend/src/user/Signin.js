@@ -1,8 +1,81 @@
 import React, { useState } from "react";
 import Base from "../core/Base";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { signin, authenticate, isAuthenticated } from "../auth/helper/index";
 
 const Signin = () => {
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+    error: "",
+    loading: false,
+    didRedirect: false,
+  });
+
+  const { email, password, error, loading, didRedirect } = values;
+  const { user } = isAuthenticated();
+
+  const handleChange = (name) => (event) => {
+    setValues({ ...values, error: false, [name]: event.target.value });
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setValues({ ...values, error: false, loading: true });
+    signin({ email, password })
+      .then((data) => {
+        if (data.error) {
+          setValues({ ...values, error: data.error, loading: false });
+        } else {
+          authenticate(data, () => {
+            setValues({
+              ...values,
+              didRedirect: true,
+            });
+          });
+        }
+      })
+      .catch((err) => console.log("signin request failed"));
+  };
+
+  const performRedirect = () => {
+    // TODO: do a redirection here
+    if (didRedirect) {
+      if (user && user.role === 1) {
+        return <p>redirect to admin</p>;
+      } else {
+        return <p>redirect to user dashboard</p>;
+      }
+    }
+    if (isAuthenticated()) {
+      return <Navigate to="/"/>;
+    }
+  };
+
+  const loadingMessage = () => {
+    return (
+      <div
+        style={{ display: loading ? "" : "none" }}
+        className="mb-4 max-w-md rounded-md mx-auto bg-green-200 px-6 py-5 text-base text-lime-900"
+        role="alert"
+      >
+        <h2>Loading...</h2>
+      </div>
+    );
+  };
+
+  const errorMessage = () => {
+    return (
+      <div
+        style={{ display: error ? "" : "none" }}
+        className="mb-4 max-w-md rounded-md mx-auto bg-red-200 px-6 py-5 text-base text-red-900"
+        role="alert"
+      >
+        {error}
+      </div>
+    );
+  };
+
   const signInform = () => {
     return (
       <>
@@ -15,6 +88,8 @@ const Signin = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="email"
               placeholder="Email"
+              value={email}
+              onChange={handleChange("email")}
             />
 
             <input
@@ -22,9 +97,12 @@ const Signin = () => {
               className="block border border-grey-light w-full p-3 rounded mb-4"
               name="password"
               placeholder="Password"
+              value={password}
+              onChange={handleChange("password")}
             />
 
             <button
+              onClick={onSubmit}
               type="submit"
               className="w-full text-center py-3 rounded bg-gray-800 text-white hover:bg-green-dark focus:outline-none my-1"
             >
@@ -38,7 +116,11 @@ const Signin = () => {
 
   return (
     <Base title="SignIn page" description="A page for user to signin !">
+      {loadingMessage()}
+      {errorMessage()}
       {signInform()}
+      {performRedirect()}
+      <p className="text-white text-center">{JSON.stringify(values)}</p>
     </Base>
   );
 };

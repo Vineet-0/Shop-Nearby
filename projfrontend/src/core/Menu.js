@@ -1,7 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Navigate, redirect } from "react-router-dom";
+import { isAuthenticated, signout } from "../auth/helper";
 
 const Menu = () => {
+  const redirectToHome = () => {
+    return <Navigate to="/" />;
+  };
+
+  const [signOut, setSignout] = useState(false);
+
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -43,35 +50,43 @@ const Menu = () => {
                   A. Dashboard
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/signup"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  SignUp
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/signin"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  SignIn
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/signout"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  SignOut
-                </Link>
-              </li>
+              {!isAuthenticated() && (
+                <>
+                  <li>
+                    <Link
+                      to="/signup"
+                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                      SignUp
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/signin"
+                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                      SignIn
+                    </Link>
+                  </li>
+                </>
+              )}
+              {isAuthenticated() && (
+                <li>
+                  <span
+                    onClick={() => {
+                      signout(() => setSignout(true));
+                    }}
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer"
+                  >
+                    Signout
+                  </span>
+                </li>
+              )}
             </ul>
           </div>
         </div>
       </nav>
-      ;
+      ;{signOut && redirectToHome()}
     </>
   );
 };

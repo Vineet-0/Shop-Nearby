@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { signup } from "../auth/helper/index";
 
 const Signup = () => {
-  
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -105,9 +104,8 @@ const Signup = () => {
       >
         New account was created successfully.
         <p>
-          Please{" "}
-          <Link to="/signin" className="underline text-blue-600">
-            {" "}
+          Please
+          <Link to="/signin" className="underline mx-2 text-blue-600">
             Login Here
           </Link>
         </p>

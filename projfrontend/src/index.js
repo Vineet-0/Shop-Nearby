@@ -4,6 +4,10 @@ import Home from "./core/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signup from "./user/Signup";
 import Signin from "./user/Signin";
+import PrivateRoute from "./auth/helper/PrivateRoutes";
+import AdminRoute from "./auth/helper/AdminRoutes";
+import UserDashBoard from "./user/UserDashBoard";
+import AdminDashBoard from "./user/AdminDashBoard";
 
 const appRouter = createBrowserRouter([
   {
@@ -17,6 +21,22 @@ const appRouter = createBrowserRouter([
   {
     path: "/signin",
     element: <Signin />,
+  },
+  {
+    path: "/user/dashboard",
+    element: (
+      <PrivateRoute>
+        <UserDashBoard />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/admin/dashboard",
+    element: (
+      <AdminRoute>
+        <AdminDashBoard />
+      </AdminRoute>
+    ),
   },
 ]);
 
