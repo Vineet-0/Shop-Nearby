@@ -8,6 +8,10 @@ import PrivateRoute from "./auth/helper/PrivateRoutes";
 import AdminRoute from "./auth/helper/AdminRoutes";
 import UserDashBoard from "./user/UserDashBoard";
 import AdminDashBoard from "./user/AdminDashBoard";
+import AddCategory from "./admin/AddCategory";
+import ManageCategories from "./admin/ManageCategories";
+import AddProduct from "./admin/AddProduct";
+import ManageProducts from "./admin/ManageProducts";
 
 const appRouter = createBrowserRouter([
   {
@@ -35,6 +39,38 @@ const appRouter = createBrowserRouter([
     element: (
       <AdminRoute>
         <AdminDashBoard />
+      </AdminRoute>
+    ),
+  },
+  {
+    path: "/admin/create/category",
+    element: (
+      <AdminRoute>
+        <AddCategory />
+      </AdminRoute>
+    ),
+  },
+  {
+    path: "/admin/categories",
+    element: (
+      <AdminRoute>
+        <ManageCategories />
+      </AdminRoute>
+    ),
+  },
+  {
+    path: "/admin/create/product",
+    element: (
+      <AdminRoute>
+        <AddProduct />
+      </AdminRoute>
+    ),
+  },
+  {
+    path: "/admin/products",
+    element: (
+      <AdminRoute>
+        <ManageProducts />
       </AdminRoute>
     ),
   },

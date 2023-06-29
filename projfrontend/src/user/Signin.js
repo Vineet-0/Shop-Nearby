@@ -39,7 +39,6 @@ const Signin = () => {
   };
 
   const performRedirect = () => {
-    // TODO: do a redirection here
     if (didRedirect) {
       if (user && user.role === 1) {
         return <Navigate to="/admin/dashboard" />;

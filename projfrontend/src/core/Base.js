@@ -11,7 +11,7 @@ const Base = ({
 }) => {
   return (
     <>
-      <Menu />
+      <Menu/>
       <div>
         <div className="text-white text-center">
           <h2 className="text-4xl">{title}</h2>
