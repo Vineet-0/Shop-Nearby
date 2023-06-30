@@ -12,6 +12,8 @@ import AddCategory from "./admin/AddCategory";
 import ManageCategories from "./admin/ManageCategories";
 import AddProduct from "./admin/AddProduct";
 import ManageProducts from "./admin/ManageProducts";
+import UpdateProduct from "./admin/UpdateProduct";
+import UpdateCategory from "./admin/UpdateCategory";
 
 const appRouter = createBrowserRouter([
   {
@@ -71,6 +73,22 @@ const appRouter = createBrowserRouter([
     element: (
       <AdminRoute>
         <ManageProducts />
+      </AdminRoute>
+    ),
+  },
+  {
+    path: "/admin/product/update/:productId",
+    element: (
+      <AdminRoute>
+        <UpdateProduct />
+      </AdminRoute>
+    ),
+  },
+  {
+    path: "/admin/category/update/:categoryId",
+    element: (
+      <AdminRoute>
+        <UpdateCategory />
       </AdminRoute>
     ),
   },

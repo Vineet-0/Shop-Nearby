@@ -10,8 +10,8 @@ const AdminDashBoard = () => {
 
   const AdminLeftSide = () => {
     return (
-      <div className="mr-4 text-center">
-        <h4 className="font-bold text-gray-200 text-xl py-3 bg-slate-900 ">
+      <div className="mr-4 text-center border-slate-700 rounded-md">
+        <h4 className="font-bold text-gray-200 text-xl py-4 bg-slate-900 ">
           Admin Navigation
         </h4>
         <ul>
@@ -66,7 +66,7 @@ const AdminDashBoard = () => {
 
   return (
     <Base
-      className="container p-4 bg-slate-600 mx-auto mt-10"
+      className="container p-4 bg-slate-600 rounded-md mx-auto mt-10"
       title="Welcome to admin area"
       description="Manage all of your products here"
     >

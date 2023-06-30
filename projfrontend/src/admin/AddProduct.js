@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Base from "../core/Base";
-import { Link } from "react-router-dom";
-import { getCategories } from "./helper/adminapicall";
+import { Link, Navigate } from "react-router-dom";
+import { getCategories, createaProduct } from "./helper/adminapicall";
+import { isAuthenticated } from "../auth/helper/index";
 
 const AddProduct = () => {
   const [values, setValues] = useState({
@@ -34,13 +35,15 @@ const AddProduct = () => {
     formData,
   } = values;
 
+  const [count, setCount] = useState(0);
+
   const preload = () => {
     getCategories().then((data) => {
+      console.log("data", data);
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
-        setValues({ ...values, categories: data });
-        console.log(categories);
+        setValues({ ...values, categories: data, formData: new FormData() });
       }
     });
   };
@@ -49,12 +52,66 @@ const AddProduct = () => {
     preload();
   }, []);
 
-  const handleChange = (name) => {
-    //
+  const handleChange = (name) => (even) => {
+    const value = name === "photo" ? event.target.files[0] : event.target.value;
+    formData.set(name, value);
+    setValues({ ...values, [name]: value });
   };
 
+  const { user, token } = isAuthenticated();
   const onSubmit = (event) => {
-    //
+    event.preventDefault();
+    setValues({ ...values, error: "", loading: true });
+    createaProduct(user._id, token, formData).then((data) => {
+      if (data.error) {
+        setValues({ ...values, error: data.error });
+      } else {
+        setValues({
+          ...values,
+          name: "",
+          description: "",
+          price: "",
+          stock: "",
+          loading: false,
+          createdProduct: data.name,
+          getRedirect: true,
+        });
+      }
+    });
+  };
+
+  const successMessage = () => {
+    return (
+      <div
+        style={{ display: createdProduct ? "" : "none" }}
+        className="mb-4 max-w-md rounded-md mx-auto text-lg font-bold px-6 py-5 text-lime-600"
+        role="alert"
+      >
+        <h4>{createdProduct} created successfully</h4>
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (getRedirect) setCount(1);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [getRedirect]);
+
+  const warningMessage = () => {
+    return (
+      <div
+        style={{ display: error ? "" : "none" }}
+        className="mb-4 max-w-md rounded-md mx-auto text-lg font-bold px-6 py-5 text-red-600"
+        role="alert"
+      >
+        <h4>Failed to create product</h4>
+      </div>
+    );
   };
 
   const createProductForm = () => (
@@ -78,14 +135,14 @@ const AddProduct = () => {
           name="photo"
           placeholder="Name"
           value={name}
-          className="block border w-full  border-grey-light my-3 p-2 rounded mb-4"
+          className="block border text-black w-full  border-grey-light my-3 p-2 rounded mb-4"
         />
       </div>
       <div>
         <textarea
           onChange={handleChange("description")}
           name="photo"
-          className="block border w-full  border-grey-light my-3 p-2 rounded mb-4"
+          className="block border w-full text-black border-grey-light my-3 p-2 rounded mb-4"
           placeholder="Description"
           value={description}
         />
@@ -94,7 +151,7 @@ const AddProduct = () => {
         <input
           onChange={handleChange("price")}
           type="number"
-          className="block border w-full  my-3 p-2 rounded mb-4"
+          className="block border w-full text-black my-3 p-2 rounded mb-4"
           placeholder="Price"
           value={price}
         />
@@ -102,7 +159,6 @@ const AddProduct = () => {
       <div>
         <select
           onChange={handleChange("category")}
-          //   className="w-full my-3 p-2 rounded mb-4 "
           className="form-select appearance-none
         block
         w-full
@@ -112,15 +168,21 @@ const AddProduct = () => {
           placeholder="Category"
         >
           <option>Select</option>
-          <option value="a">a</option>
-          <option value="b">b</option>
+          {categories &&
+            categories.map((cate, index) => {
+              return (
+                <option key={index} value={cate._id}>
+                  {cate.name}
+                </option>
+              );
+            })}
         </select>
       </div>
       <div>
         <input
-          onChange={handleChange("quantity")}
+          onChange={handleChange("stock")}
           type="number"
-          className="block border w-full my-3 p-2 rounded mb-4"
+          className="block border w-full text-black my-3 p-2 rounded mb-4"
           placeholder="Quantity"
           value={stock}
         />
@@ -140,15 +202,20 @@ const AddProduct = () => {
     <Base
       title="Add a product here!"
       description="Welcome to product creation section"
-      className=" p-4 bg-slate-400 mx-auto w-3/4 mt-8 mb-4"
+      className=" py-5 px-3 bg-slate-400 mx-auto w-3/4 mt-8 mb-4 rounded-md"
     >
       <div>
         <button className="border-2 p-2 text-slate-700 mb-3 font-bold rounded-md border-slate-700 hover:bg-slate-600 hover:text-white">
           <Link to="/admin/dashboard">Admin Home</Link>
         </button>
       </div>
-      <div className=" py-5 bg-[#343a40] px-3">
-        <div className="mx-40 text-white">{createProductForm()}</div>
+      <div className="  bg-[#343a40] rounded-md">
+        <div className="mx-40 text-white ">
+          {successMessage()}
+          {warningMessage()}
+          {count == 1 && <Navigate to="/admin/dashboard" />}
+          {createProductForm()}
+        </div>
       </div>
     </Base>
   );

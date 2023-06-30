@@ -11,7 +11,7 @@ const Menu = () => {
 
   return (
     <>
-      <div className=" w-full">
+      <div className="sticky top-0 left-0 w-full">
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <h1 className="flex text-white items-center text-lg">
