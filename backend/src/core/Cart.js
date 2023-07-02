@@ -4,6 +4,7 @@ import Base from "../core/Base";
 import Card from "./Card";
 import { getProducts } from "./helper/coreapicalls";
 import { loadCart } from "./helper/cartHelper";
+import StripeCheckOut from "./StripeCheckOut";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -47,7 +48,9 @@ const Cart = () => {
     <Base title="Cart Page" description="Ready to checkout">
       <div className="grid grid-cols-2">
         <div>{loadAllProducts()}</div>
-        <div>Checkout Section</div>
+        <div>
+          <StripeCheckOut products={products} setReload={setReload} />
+        </div>
       </div>
     </Base>
   );
