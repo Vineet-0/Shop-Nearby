@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { isAuthenticated } from "../auth/helper";
 import { cartEmpty, loadCart } from "./helper/cartHelper";
 import { Link } from "react-router-dom";
+import StripeCheckoutButton from "react-stripe-checkout";
+import { API } from "../backend";
+import { createOrder } from "./helper/orderHelper";
 
-const StripeCheckOut = ({
+const StripeCheckout = ({
   products,
   setReload = (f) => f,
   reload = undefined,
@@ -26,24 +29,46 @@ const StripeCheckOut = ({
     return amount;
   };
 
+  const makePayment = (token) => {
+    const body = {
+      token,
+      products,
+    };
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    return fetch(`${API}/stripepayment`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const showStripeButton = () => {
     return isAuthenticated() ? (
-      <button
-        className="p-2 text-white bg-green-600 mb-3 font-bold rounded-md "
+      <StripeCheckoutButton
+        stripeKey="pk_test_51NPUHOSEqs1ngiqUqYW9ZKd5s6feRB6siZRMTkbXsJ6SKRkdZYwTbHSsxI0TsZErwGqfIHilelJ9PXHwJkrHq0EC00SclXHE11"
+        token={makePayment}
+        amount={getFinalAmount() * 100}
+        name="Buy Tshirts"
+        billingAddressCollection
       >
-        Pay with stripe
-      </button>
+        <button className="p-2 text-white bg-green-600 mb-3 font-bold rounded-md ">
+          Pay with stripe
+        </button>
+      </StripeCheckoutButton>
     ) : (
       <Link to="/signin">
-        <button
-          className="p-2 text-black  mb-3 font-bold rounded-md bg-yellow-500"
-        >
+        <button className="p-2 text-black  mb-3 font-bold rounded-md bg-yellow-500">
           Signin
         </button>
       </Link>
     );
   };
-
 
   return (
     <div>
@@ -53,4 +78,4 @@ const StripeCheckOut = ({
   );
 };
 
-export default StripeCheckOut;
+export default StripeCheckout;
