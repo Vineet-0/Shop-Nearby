@@ -15,6 +15,7 @@ import ManageProducts from "./admin/ManageProducts";
 import UpdateProduct from "./admin/UpdateProduct";
 import UpdateCategory from "./admin/UpdateCategory";
 import Cart from "./core/Cart";
+import PaymentConfirmation from "./core/PaymentConfirmation";
 
 const appRouter = createBrowserRouter([
   {
@@ -95,6 +96,14 @@ const appRouter = createBrowserRouter([
       <AdminRoute>
         <UpdateCategory />
       </AdminRoute>
+    ),
+  },
+  {
+    path: "/payment-confirmed",
+    element: (
+      <PrivateRoute>
+        <PaymentConfirmation />
+      </PrivateRoute>
     ),
   },
 ]);
