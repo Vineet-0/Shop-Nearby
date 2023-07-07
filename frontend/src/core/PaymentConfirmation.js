@@ -2,7 +2,11 @@ import React from 'react'
 
 const PaymentConfirmation = () => {
   return (
-    <div>PaymentConfirmation</div>
+    <div>
+      <h1 className='text-white text-xl'>
+        Order Placed Successfully 🎉
+      </h1>
+    </div>
   )
 }
 

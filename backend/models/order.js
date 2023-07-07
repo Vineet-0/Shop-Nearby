@@ -12,8 +12,6 @@ const ProductCartSchema = new mongoose.Schema({
 });
 
 const ProductCart = mongoose.model("ProductCart", ProductCartSchema);
-
-
 const orderSchema = mongoose.Schema(
   {
     products: [ProductCartSchema],
