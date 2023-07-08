@@ -13,7 +13,7 @@ const Base = ({
       <Menu />
       <div className="min-h-screen">
         <div className="text-white text-center">
-          <h2 className="text-4xl">{title}</h2>
+          <h2 className="text-5xl pt-8 pb-4">{title}</h2>
           <p>{description}</p>
         </div>
         <div className={className}>{children}</div>

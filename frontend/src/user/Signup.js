@@ -43,11 +43,11 @@ const Signup = () => {
     return (
       <>
         <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
-          <div className="bg-gray-600 px-6 py-8 rounded shadow-md text-black w-full">
+          <div className="bg-gray-600 px-12 py-8 rounded-3xl shadow-md text-black w-full">
             <h1 className="mb-8 text-white text-3xl text-center">Sign up</h1>
             <input
               type="text"
-              className="block border border-grey-light w-full p-3 rounded mb-4"
+              className="block border border-grey-light w-full px-5 py-3 rounded-full mb-4"
               name="fullname"
               placeholder="Full Name"
               onChange={handleChange("name")}
@@ -56,7 +56,7 @@ const Signup = () => {
 
             <input
               type="text"
-              className="block border border-grey-light w-full p-3 rounded mb-4"
+              className="block border border-grey-light w-full px-5 py-3 rounded-full mb-4"
               name="email"
               placeholder="Email"
               onChange={handleChange("email")}
@@ -65,7 +65,7 @@ const Signup = () => {
 
             <input
               type="password"
-              className="block border border-grey-light w-full p-3 rounded mb-4"
+              className="block border border-grey-light w-full px-5 py-3 rounded-full mb-4"
               name="password"
               placeholder="Password"
               onChange={handleChange("password")}
@@ -75,17 +75,17 @@ const Signup = () => {
             <button
               type="submit"
               onClick={onSubmit}
-              className="w-full text-center py-3 rounded bg-gray-800 text-white hover:bg-green-dark focus:outline-none my-1"
+              className="w-full text-center py-3 rounded-full bg-gray-800 text-white hover:bg-green-dark focus:outline-none my-1"
             >
               Create Account
             </button>
           </div>
 
-          <div className="text-grey-dark mt-6">
+          <div className="text-grey-dark mt-4">
             Already have an account?
             <Link
               to="/signin"
-              className="no-underline border-b border-blue mx-2 text-blue"
+              className="border-b border-blue mx-2 hover:text-blue-400"
             >
               Log in
             </Link>
@@ -105,7 +105,7 @@ const Signup = () => {
         New account was created successfully.
         <p>
           Please
-          <Link to="/signin" className="underline mx-2 text-blue-600">
+          <Link to="/signin" className="underline mx-2 text-blue-700">
             Login Here
           </Link>
         </p>

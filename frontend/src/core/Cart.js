@@ -39,16 +39,19 @@ const Cart = () => {
 
   return (
     <Base title="Cart Page" description="Ready to checkout">
-      <div className="grid grid-cols-2">
-        <div>
+      <div className="flex items-center justify-center md:items-start flex-col md:flex-row">
+        <div className="w-2/3 md:w-2/3">
           {products.length > 0 ? (
             loadAllProducts(products)
           ) : (
             <h3>No Products in Cart</h3>
           )}
         </div>
-        <div className="max-w-[400px]">
-          <Payment products={products} />
+        
+        <div className=" w-2/3 md:w-1/3 mt-4">
+          <div className=" max-w-[400px]">
+            <Payment products={products} />
+          </div>
         </div>
       </div>
     </Base>

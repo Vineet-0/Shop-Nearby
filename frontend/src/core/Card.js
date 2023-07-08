@@ -54,16 +54,16 @@ const Card = ({
   };
 
   return (
-    <div className="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="flex flex-col w-full max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-white dark:border-gray-700 dark:text-black">
       <ImageHelper product={product} />
       <div className="px-8 pb-5">
         {getRedirect()}
-        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white mb-2">
+        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-black mb-2">
           {product.name}
         </h5>
         <h2>{product.description}</h2>
         <div className="flex items-center justify-between mt-3">
-          <span className="text-3xl font-bold text-gray-900 dark:text-white">
+          <span className="text-3xl font-bold text-gray-900 dark:text-black">
             ${product.price}
           </span>
           {showAddToCart()}
