@@ -116,7 +116,7 @@ const AddProduct = () => {
 
   const createProductForm = () => (
     <form>
-      <span>Post photo</span>
+      <span className="text-2xl font-bold text-[#05445E] mb-4">Post photo</span>
       <div>
         <label>
           <input
@@ -125,7 +125,7 @@ const AddProduct = () => {
             name="photo"
             accept="image"
             placeholder="choose a file"
-            className="block border w-full  border-grey-light my-3 p-2 rounded mb-4"
+            className=" block border w-full bg-white text-[#05445E] border-[#05445E] my-3 p-2 rounded mb-4"
           />
         </label>
       </div>
@@ -135,14 +135,14 @@ const AddProduct = () => {
           name="photo"
           placeholder="Name"
           value={name}
-          className="block border text-black w-full  border-grey-light my-3 p-2 rounded mb-4"
+          className="block border w-full text-[#05445E] border-[#05445E] my-3 px-4 py-2 rounded mb-4"
         />
       </div>
       <div>
         <textarea
           onChange={handleChange("description")}
           name="photo"
-          className="block border w-full text-black border-grey-light my-3 p-2 rounded mb-4"
+          className="block border w-full text-black border-[#05445E] my-3 px-4 py-2 rounded mb-4"
           placeholder="Description"
           value={description}
         />
@@ -151,7 +151,7 @@ const AddProduct = () => {
         <input
           onChange={handleChange("price")}
           type="number"
-          className="block border w-full text-black my-3 p-2 rounded mb-4"
+          className="block border w-full text-black border-[#05445E] my-3 px-4 py-2 rounded mb-4"
           placeholder="Price"
           value={price}
         />
@@ -159,12 +159,7 @@ const AddProduct = () => {
       <div>
         <select
           onChange={handleChange("category")}
-          className="form-select appearance-none
-        block
-        w-full
-        p-2
-        rounded mb-4
-        text-gray-400"
+          className="form-select appearance-none block w-full px-4 py-2 rounded mb-4 text-gray-400 border border-[#05445E]"
           placeholder="Category"
         >
           <option>Select</option>
@@ -182,7 +177,7 @@ const AddProduct = () => {
         <input
           onChange={handleChange("stock")}
           type="number"
-          className="block border w-full text-black my-3 p-2 rounded mb-4"
+          className="block border w-full text-black border-[#05445E] my-3 px-4 py-2 rounded mb-4"
           placeholder="Quantity"
           value={stock}
         />
@@ -191,7 +186,7 @@ const AddProduct = () => {
       <button
         type="submit"
         onClick={onSubmit}
-        className="border-2 p-2  mb-3 font-bold rounded-md"
+        className="px-4 py-2 bg-[#05445E] mb-3 font-bold rounded-md hover:bg-[#189AB4]"
       >
         Create Product
       </button>
@@ -202,19 +197,21 @@ const AddProduct = () => {
     <Base
       title="Add a product here!"
       description="Welcome to product creation section"
-      className=" py-5 px-3 bg-slate-400 mx-auto w-3/4 mt-8 mb-4 rounded-md"
+      className=" p-8 bg-[#189AB4] mx-auto w-3/4 mt-8 mb-4 rounded-md"
     >
-      <div>
-        <button className="border-2 p-2 text-slate-700 mb-3 font-bold rounded-md border-slate-700 hover:bg-slate-600 hover:text-white">
-          <Link to="/admin/dashboard">Admin Home</Link>
-        </button>
-      </div>
-      <div className="  bg-[#343a40] rounded-md">
-        <div className="mx-40 text-white ">
-          {successMessage()}
-          {warningMessage()}
-          {count == 1 && <Navigate to="/admin/dashboard" />}
-          {createProductForm()}
+      <div className="">
+        <div>
+          <button className="px-4 py-2 text-[#05445E] bg-[#75E6DA] mb-4 font-bold rounded-md hover:bg-[#05445E] hover:text-white">
+            <Link to="/admin/dashboard">Admin Home</Link>
+          </button>
+        </div>
+        <div className="  bg-[#75E6DA] rounded-md p-4">
+          <div className="mx-40 text-white ">
+            {successMessage()}
+            {warningMessage()}
+            {count == 1 && <Navigate to="/admin/dashboard" />}
+            {createProductForm()}
+          </div>
         </div>
       </div>
     </Base>

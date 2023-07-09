@@ -10,8 +10,8 @@ const AdminDashBoard = () => {
 
   const AdminLeftSide = () => {
     return (
-      <div className="mr-4 text-center border-slate-700 rounded-md">
-        <h4 className="font-bold text-gray-200 text-xl py-4 bg-slate-900 ">
+      <div className="mr-4 text-center border-[#05445E] rounded-md">
+        <h4 className="font-bold text-gray-200 text-xl py-4 bg-[#05445E] ">
           Admin Navigation
         </h4>
         <ul>
@@ -38,24 +38,24 @@ const AdminDashBoard = () => {
   const AdminRightSide = () => {
     return (
       <div className="ml-2 bg-white">
-        <h4 className="font-medium px-3 bg-gray-400 text-xl py-3">
+        <h4 className="font-medium text-xl px-8 py-4 text-gray-200 bg-[#05445E]">
           Admin Information
         </h4>
         <ul>
-          <li className="px-3  py-3 border-t-2 border-b-slate-700 bg-white">
-            <span className="text-white bg-slate-600 p-1 rounded-md">
+          <li className="px-8  py-3 border-t-2 border-b-slate-700 bg-white">
+            <span className="font-bold text-[#05445E] p-1 rounded-md">
               Name:
             </span>{" "}
             {name}
           </li>
-          <li className="px-3  py-3 border-t-2 border-b-slate-700 bg-white">
-            <span className="text-white bg-slate-600 p-1 rounded-md">
+          <li className="px-8 py-3 border-t-2 border-b-slate-700 bg-white">
+            <span className="font-bold text-[#05445E] p-1 rounded-md">
               Email:
             </span>{" "}
             {email}
           </li>
-          <li className="px-3  py-3 border-t-2 border-b-slate-700 bg-white">
-            <span className="text-white bg-red-500 p-1 px-2 rounded-md">
+          <li className="px-8 py-3 border-t-2 border-b-slate-700 bg-white">
+            <span className="text-white bg-red-500 px-4 py-2 rounded-md">
               Admin Area
             </span>
           </li>
@@ -66,8 +66,8 @@ const AdminDashBoard = () => {
 
   return (
     <Base
-      className="container p-4 bg-slate-600 rounded-md mx-auto mt-10"
-      title="Welcome to admin area"
+      className="container p-4 bg-[#189AB4] rounded-md mx-auto mt-10"
+      title="Welcome to Admin Area"
       description="Manage all of your products here"
     >
       <div className="w-full flex">

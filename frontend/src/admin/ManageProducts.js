@@ -36,43 +36,45 @@ const ManageProducts = () => {
     <Base
       title="Welcome admin"
       description="Manage products here"
-      className=" p-6 mt-8 mx-auto w-4/5 mb-4"
+      className="mt-8 mx-auto w-4/5 mb-4"
     >
-      <h2 className="mb-4 text-2xl font-bold text-white">All products:</h2>
-      <button className=" p-2 text-white bg-sky-500 mb-3 font-bold rounded-md hover:bg-sky-700">
-        <Link to={`/admin/dashboard`}>
-          <span className="">Admin Home</span>
-        </Link>
-      </button>
-      <div>
-        <h2 className="text-center text-white my-3">Total {products.length} products</h2>
+      <div className="bg-[#189AB4] p-8 rounded-md">
+        <h2 className="mb-4 text-2xl font-bold text-white">All products:</h2>
+        <button className="px-4 py-2 text-[#05445E] bg-[#75E6DA] mb-2 font-bold rounded-md hover:bg-[#05445E] hover:text-white">
+          <Link to={`/admin/dashboard`}>
+            <span className="">Admin Home</span>
+          </Link>
+        </button>
+        <div>
+          <h2 className="text-center text-2xl font-bold text-white mb-4">Total {products.length} products</h2>
 
-        {products.map((product, index) => {
-          return (
-            <div key={index} className="grid grid-cols-3 text-center mb-1">
-              <div>
-                <h3 className="text-white text-left">{product.name}</h3>
+          {products.map((product, index) => {
+            return (
+              <div key={index} className="grid grid-cols-3 text-center mb-1 bg-[#75E6DA] rounded-xl">
+                <div className="flex items-center justify-center">
+                  <h3 className="text-[#05445E] text-xl font-bold">{product.name}</h3>
+                </div>
+                <div>
+                  <button className="px-4 py-2 text-white bg-green-500 my-2 font-bold rounded-md hover:bg-green-700">
+                    <Link to={`/admin/product/update/${product._id}`}>
+                      <span className="">Update</span>
+                    </Link>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    onClick={() => {
+                      deleteThisProduct(product._id);
+                    }}
+                    className="px-4 py-2 text-white bg-red-600 my-2 font-bold rounded-md hover:bg-red-800"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-              <div>
-                <button className="p-2 text-white bg-green-500 mb-3 font-bold rounded-md hover:bg-green-700">
-                  <Link to={`/admin/product/update/${product._id}`}>
-                    <span className="">Update</span>
-                  </Link>
-                </button>
-              </div>
-              <div>
-                <button
-                  onClick={() => {
-                    deleteThisProduct(product._id);
-                  }}
-                  className="p-2 text-white bg-red-600 mb-3 font-bold rounded-md hover:bg-red-800"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </Base>
   );
