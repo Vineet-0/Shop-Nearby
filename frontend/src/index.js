@@ -16,7 +16,6 @@ import UpdateProduct from "./admin/UpdateProduct";
 import UpdateCategory from "./admin/UpdateCategory";
 import Cart from "./core/Cart";
 import PaymentConfirmation from "./core/PaymentConfirmation";
-import ManageOrders from "./admin/ManageOrders";
 
 const appRouter = createBrowserRouter([
   {
@@ -96,14 +95,6 @@ const appRouter = createBrowserRouter([
     element: (
       <AdminRoute>
         <UpdateCategory />
-      </AdminRoute>
-    ),
-  },
-  {
-    path: "/admin/orders",
-    element: (
-      <AdminRoute>
-        <ManageOrders />
       </AdminRoute>
     ),
   },

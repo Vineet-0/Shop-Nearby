@@ -28,14 +28,14 @@ const Payment = ({ products }) => {
 
   return (
     <>
-        <div className="bg-white px-8 pb-4 pt-2 rounded-xl">
-          <h1>Stripe payment</h1>
-          {stripePromise && clientSecret && (
-            <Elements stripe={stripePromise} options={{clientSecret}}>
-              <CheckoutForm />
-            </Elements>
-          )}
-        </div>
+      <div className="bg-white px-8 pb-4 pt-2 rounded-xl">
+        <h1>Stripe payment</h1>
+        {stripePromise && clientSecret && (
+          <Elements stripe={stripePromise} options={{ clientSecret }}>
+            <CheckoutForm />
+          </Elements>
+        )}
+      </div>
     </>
   );
 };

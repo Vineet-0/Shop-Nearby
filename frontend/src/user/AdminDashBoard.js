@@ -27,9 +27,7 @@ const AdminDashBoard = () => {
           <li className="font-bold text-slate-700  text-xl py-4 border-t-2 border-b-slate-700 bg-white  hover:text-blue-600">
             <Link to="/admin/products">Manage Products</Link>
           </li>
-          <li className="font-bold text-slate-700  text-xl py-4 border-t-2 border-b-slate-700 bg-white  hover:text-blue-600">
-            <Link to="/admin/orders">Manage Orders</Link>
-          </li>
+          
         </ul>
       </div>
     );
