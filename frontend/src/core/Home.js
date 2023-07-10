@@ -6,6 +6,7 @@ import { getProducts } from "./helper/coreapicalls";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const [error, setError] = useState(false);
 
   const loadAllProducts = () => {
@@ -24,7 +25,8 @@ const Home = () => {
   }, []);
 
   return (
-    <Base title="Home Page" description="Welcome to the Tshirt Store">
+    <Base title="Home Page" description="Welcome to Shop Nearby">
+      
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
         {products.map((product, index) => {
           return <Card key={index} product={product} />;

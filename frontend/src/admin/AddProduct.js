@@ -4,7 +4,9 @@ import { Link, Navigate } from "react-router-dom";
 import { getCategories, createaProduct } from "./helper/adminapicall";
 import { isAuthenticated } from "../auth/helper/index";
 
+
 const AddProduct = () => {
+ 
   const [values, setValues] = useState({
     name: "",
     description: "",
@@ -72,6 +74,8 @@ const AddProduct = () => {
           description: "",
           price: "",
           stock: "",
+          latitude: "",
+          longitude: "",
           loading: false,
           createdProduct: data.name,
           getRedirect: true,
