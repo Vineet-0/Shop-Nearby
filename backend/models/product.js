@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+require('mongoose-double')(mongoose);
+var SchemaTypes = mongoose.Schema.Types;
 const { ObjectId } = mongoose.Schema;
 
 const productSchema = new mongoose.Schema(
