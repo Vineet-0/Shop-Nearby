@@ -6,8 +6,26 @@ import { getProducts } from "./helper/coreapicalls";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [searchText, setSearchText] = useState("");
+  const [filteredProducts, setfilterProducts] = useState([]);
   const [error, setError] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  function filterData(searchQuery, products) {
+    const filterData = products.filter((product) => {
+      return product.name.toLowerCase()?.includes(searchQuery.toLowerCase());
+    });
+    return filterData;
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    filteredData = filterData(searchQuery, products);
+    setfilterProducts(filteredData);
+  };
+
+  const handleChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
 
   const loadAllProducts = () => {
     getProducts().then((data) => {
@@ -15,6 +33,7 @@ const Home = () => {
         setError(data.error);
       } else {
         setProducts(data);
+        setfilterProducts(data);
       }
     });
   };
@@ -26,9 +45,20 @@ const Home = () => {
 
   return (
     <Base title="Home Page" description="Welcome to Shop Nearby">
-      
+      <form onSubmit={handleSubmit}>
+        <input
+          className="text-black w-1/2 text-lg p-3"
+          type="text"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleChange}
+        />
+        <button 
+        className="m-5 border-2 text-black text-lg p-3 border-black"
+        type="submit">Search</button>
+      </form>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
-        {products.map((product, index) => {
+        {filteredProducts.map((product, index) => {
           return <Card key={index} product={product} />;
         })}
       </div>

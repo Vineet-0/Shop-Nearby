@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Navigate, redirect } from "react-router-dom";
 import { isAuthenticated, signout } from "../auth/helper";
 
@@ -9,20 +9,142 @@ const Menu = () => {
 
   const [signOut, setSignout] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <>
-      <div className="sticky top-0 left-0 w-full">
-        <nav className="bg-white border-gray-200 dark:bg-[#05445E]">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <h1 className="flex text-white items-center text-xl">
-              <Link to="/">Logo</Link>
-            </h1>
-            <div
-              className="hidden w-full md:block md:w-auto text-xl"
-              id="navbar-default"
-            >
-              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-none md:dark:bg-transparent dark:border-gray-700">
+    <nav className="bg-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-shrink-0">
+            <img className="h-8 w-auto" src="/path/to/logo.png" alt="Logo" />
+            {/* Put Logo Here */}
+          </div>
+          <div className="hidden md:block">
+            <div className="ml-4 flex items-center md:ml-6">
+              <li>
+                <Link
+                  to="/"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/cart"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Cart
+                </Link>
+              </li>
+              {isAuthenticated() && isAuthenticated().user.role === 0 && (
                 <li>
+                  <Link
+                    to="/user/dashboard"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              )}
+              {isAuthenticated() && isAuthenticated().user.role === 1 && (
+                <li>
+                  <Link
+                    to="/admin/dashboard"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    A. Dashboard
+                  </Link>
+                </li>
+              )}
+              {!isAuthenticated() && (
+                <>
+                  <li>
+                    <Link
+                      to="/signup"
+                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                      SignUp
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/signin"
+                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    >
+                      SignIn
+                    </Link>
+                  </li>
+                </>
+              )}
+              {isAuthenticated() && (
+                <li>
+                  <span
+                    onClick={() => {
+                      signout(() => setSignout(true));
+                    }}
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer"
+                  >
+                    Signout
+                  </span>
+                </li>
+              )}
+            </div>
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={toggleMenu}
+              type="button"
+              className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded={isOpen}
+            >
+              <span className="sr-only">Open main menu</span>
+              {!isOpen ? (
+                <svg
+                  className="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+      {isOpen && (
+        <div className="md:hidden" id="mobile-menu">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <li>
                   <Link
                     to="/"
                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
@@ -90,13 +212,10 @@ const Menu = () => {
                     </span>
                   </li>
                 )}
-              </ul>
-            </div>
           </div>
-        </nav>
-      </div>
-      {signOut && redirectToHome()}
-    </>
+        </div>
+      )}
+    </nav>
   );
 };
 
