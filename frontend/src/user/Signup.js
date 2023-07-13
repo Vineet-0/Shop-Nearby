@@ -43,8 +43,8 @@ const Signup = () => {
     return (
       <>
         <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
-          <div className="bg-gray-600 px-12 py-8 rounded-3xl shadow-md text-black w-full">
-            <h1 className="mb-8 text-white text-3xl text-center">Sign up</h1>
+          <div className="bg-[#189AB4] px-12 py-8 rounded-3xl shadow-md text-black w-full">
+            <h1 className="mb-6 text-white text-3xl font-bold text-center">Sign up</h1>
             <input
               type="text"
               className="block border border-grey-light w-full px-5 py-3 rounded-full mb-4"
@@ -75,17 +75,17 @@ const Signup = () => {
             <button
               type="submit"
               onClick={onSubmit}
-              className="w-full text-center py-3 rounded-full bg-gray-800 text-white hover:bg-green-dark focus:outline-none my-1"
+              className="w-full text-center text-xl font-bold py-3 rounded-full bg-gray-800 text-white hover:bg-[#75E6DA] hover:text-black focus:outline-none mb-2"
             >
               Create Account
             </button>
           </div>
 
-          <div className="text-grey-dark mt-4">
+          <div className="text-[#05445E] font-bold mt-4">
             Already have an account?
             <Link
               to="/signin"
-              className="border-b border-blue mx-2 hover:text-blue-400"
+              className="border-b border-blue mx-2 hover:text-[#189AB4]"
             >
               Log in
             </Link>

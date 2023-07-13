@@ -17,7 +17,7 @@ const Cart = () => {
   const loadAllProducts = (products) => {
     return (
       <div>
-        <div className="grid grid-cols-1 text-center gap-5">
+        <div className="grid grid-cols-1 xl:grid-cols-2 text-center gap-5 mx-auto">
           {products.map((product, index) => {
             return (
               <Card
@@ -39,8 +39,8 @@ const Cart = () => {
 
   return (
     <Base title="Cart Page" description="Ready to checkout">
-      <div className="flex items-center justify-center md:items-start flex-col md:flex-row">
-        <div className="w-2/3 md:w-2/3">
+      <div className="flex items-center justify-center lg:items-start flex-col lg:flex-row">
+        <div className="w-4/5 lg:w-2/3">
           {products.length > 0 ? (
             loadAllProducts(products)
           ) : (
@@ -48,9 +48,9 @@ const Cart = () => {
           )}
         </div>
         
-        <div className=" w-2/3 md:w-1/3 mt-4">
-          <div className=" max-w-[400px]">
-            <Payment products={products} />
+        <div className=" w-4/5 xl:w-1/3 mt-4">
+          <div className=" max-w-[400px] mx-auto">
+            <Payment products={products} className="mx-auto" />
           </div>
         </div>
       </div>
