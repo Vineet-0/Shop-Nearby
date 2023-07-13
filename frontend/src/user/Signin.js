@@ -43,7 +43,7 @@ const Signin = () => {
       if (user && user.role === 1) {
         return <Navigate to="/admin/dashboard" />;
       } else {
-        return <Navigate to="/user/dashboard" />;
+        return <Navigate to="/" />;
       }
     }
     if (isAuthenticated()) {
