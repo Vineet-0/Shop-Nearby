@@ -78,7 +78,7 @@ const Signin = () => {
   const signInform = () => {
     return (
       <>
-        <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2  mt-8">
           <div className="bg-[#189AB4] px-12 py-8 rounded-3xl shadow-md text-black w-full">
             <h1 className="mb-6 text-white text-3xl font-bold text-center">Sign in</h1>
 

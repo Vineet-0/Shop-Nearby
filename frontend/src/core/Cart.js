@@ -39,7 +39,7 @@ const Cart = () => {
 
   return (
     <Base title="Cart Page" description="Ready to checkout">
-      <div className="flex items-center justify-center lg:items-start flex-col lg:flex-row">
+      <div className="flex items-center justify-center lg:items-start flex-col lg:flex-row mt-8">
         <div className="w-4/5 lg:w-2/3">
           {products.length > 0 ? (
             loadAllProducts(products)
