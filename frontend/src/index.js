@@ -6,7 +6,6 @@ import Signup from "./user/Signup";
 import Signin from "./user/Signin";
 import PrivateRoute from "./auth/helper/PrivateRoutes";
 import AdminRoute from "./auth/helper/AdminRoutes";
-import UserDashBoard from "./user/UserDashBoard";
 import AdminDashBoard from "./user/AdminDashBoard";
 import AddCategory from "./admin/AddCategory";
 import ManageCategories from "./admin/ManageCategories";
@@ -16,6 +15,7 @@ import UpdateProduct from "./admin/UpdateProduct";
 import UpdateCategory from "./admin/UpdateCategory";
 import Cart from "./core/Cart";
 import PaymentConfirmation from "./core/PaymentConfirmation";
+import Profile from "./user/Profile";
 
 const appRouter = createBrowserRouter([
   {
@@ -33,14 +33,6 @@ const appRouter = createBrowserRouter([
   {
     path: "/cart",
     element: <Cart />,
-  },
-  {
-    path: "/user/dashboard",
-    element: (
-      <PrivateRoute>
-        <UserDashBoard />
-      </PrivateRoute>
-    ),
   },
   {
     path: "/admin/dashboard",
@@ -103,6 +95,14 @@ const appRouter = createBrowserRouter([
     element: (
       <PrivateRoute>
         <PaymentConfirmation />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: "/user/profile",
+    element: (
+      <PrivateRoute>
+        <Profile />
       </PrivateRoute>
     ),
   },
