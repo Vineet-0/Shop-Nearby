@@ -79,8 +79,8 @@ const Signin = () => {
     return (
       <>
         <div className="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2">
-          <div className="bg-gray-600 px-12 py-8 rounded-3xl shadow-md text-black w-full">
-            <h1 className="mb-8 text-white text-3xl text-center">Sign in</h1>
+          <div className="bg-[#189AB4] px-12 py-8 rounded-3xl shadow-md text-black w-full">
+            <h1 className="mb-6 text-white text-3xl font-bold text-center">Sign in</h1>
 
             <input
               type="text"
@@ -103,7 +103,7 @@ const Signin = () => {
             <button
               onClick={onSubmit}
               type="submit"
-              className="w-full text-center px-5 py-3  rounded-full bg-gray-800 text-white hover:bg-green-dark focus:outline-none my-1"
+              className="w-full text-center text-xl font-bold px-5 py-3 rounded-full bg-gray-800 text-white hover:bg-[#75E6DA] hover:text-black focus:outline-none mb-2"
             >
               Sign in
             </button>
