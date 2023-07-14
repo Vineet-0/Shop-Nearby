@@ -44,7 +44,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Base title="Home Page" description="Welcome to Shop Nearby">
+    <Base >
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 sm:flex sm:items-center sm:justify-center">
           <input
