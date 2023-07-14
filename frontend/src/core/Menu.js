@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Navigate, redirect } from "react-router-dom";
 import { isAuthenticated, signout } from "../auth/helper";
-import image from './menulogo.png'
+import image from "./menulogo.png";
 
 const Menu = () => {
   const redirectToHome = () => {
@@ -16,14 +16,16 @@ const Menu = () => {
     setIsOpen(!isOpen);
   };
 
-  const {user} = isAuthenticated();
+  const { user } = isAuthenticated();
 
   return (
     <nav className="bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <img className="h-16 w-auto" src={image} alt="Logo" />
+            <Link to="/">
+              <img className="h-16 w-auto" src={image} alt="Logo" />
+            </Link>
           </div>
           <div className="hidden md:block text-xl font-bold">
             <div className="ml-4 flex items-center md:ml-6 list-none">
@@ -147,74 +149,74 @@ const Menu = () => {
         <div className="md:hidden" id="mobile-menu">
           {/* ml-4 flex items-center md:ml-6 list-none */}
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center font-bold list-none">
-          <li>
+            <li>
+              <Link
+                to="/"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/cart"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+              >
+                Cart
+              </Link>
+            </li>
+            {isAuthenticated() && isAuthenticated().user.role === 0 && (
+              <li>
+                <Link
+                  to="/user/dashboard"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                >
+                  Dashboard
+                </Link>
+              </li>
+            )}
+            {isAuthenticated() && isAuthenticated().user.role === 1 && (
+              <li>
+                <Link
+                  to="/admin/dashboard"
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                >
+                  A. Dashboard
+                </Link>
+              </li>
+            )}
+            {!isAuthenticated() && (
+              <>
+                <li>
                   <Link
-                    to="/"
+                    to="/signup"
                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
                   >
-                    Home
+                    SignUp
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/cart"
+                    to="/signin"
                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
                   >
-                    Cart
+                    SignIn
                   </Link>
                 </li>
-                {isAuthenticated() && isAuthenticated().user.role === 0 && (
-                  <li>
-                    <Link
-                      to="/user/dashboard"
-                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
-                    >
-                      Dashboard
-                    </Link>
-                  </li>
-                )}
-                {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                  <li>
-                    <Link
-                      to="/admin/dashboard"
-                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
-                    >
-                      A. Dashboard
-                    </Link>
-                  </li>
-                )}
-                {!isAuthenticated() && (
-                  <>
-                    <li>
-                      <Link
-                        to="/signup"
-                        className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
-                      >
-                        SignUp
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/signin"
-                        className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
-                      >
-                        SignIn
-                      </Link>
-                    </li>
-                  </>
-                )}
-                {isAuthenticated() && (
-                  <li>
-                    <span
-                      onClick={() => {
-                        signout(() => setSignout(true));
-                      }}
-                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer "
-                    >
-                      Signout
-                    </span>
-                  </li>
-                )}
+              </>
+            )}
+            {isAuthenticated() && (
+              <li>
+                <span
+                  onClick={() => {
+                    signout(() => setSignout(true));
+                  }}
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer "
+                >
+                  Signout
+                </span>
+              </li>
+            )}
           </div>
         </div>
       )}
