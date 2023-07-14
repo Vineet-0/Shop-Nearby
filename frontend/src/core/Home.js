@@ -44,7 +44,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Base >
+    <Base>
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 sm:flex sm:items-center sm:justify-center">
           <input

@@ -22,7 +22,7 @@ const Menu = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <img className="h-8 w-auto" src="/path/to/logo.png" alt="Logo" />
+            <img className="h-8 w-auto" src="./Menu-logo.png" alt="Logo" />
             {/* Put Logo Here */}
           </div>
           <div className="hidden md:block text-xl font-bold">

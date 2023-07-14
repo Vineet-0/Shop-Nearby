@@ -54,7 +54,7 @@ const Card = ({
   };
 
   return (
-    <div className="flex flex-col w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-white dark:border-gray-700 dark:text-black">
+    <div className="flex flex-col w-full bg-white border border-gray-200 rounded-lg] dark:bg-white dark:border-gray-700 dark:text-black shadow-none  hover:shadow-2xl">
       <ImageHelper product={product} />
       <div className="px-8 pb-5">
         {getRedirect()}
