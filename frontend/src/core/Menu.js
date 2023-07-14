@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Navigate, redirect } from "react-router-dom";
 import { isAuthenticated, signout } from "../auth/helper";
+import image from './menulogo.png'
 
 const Menu = () => {
   const redirectToHome = () => {
@@ -22,8 +23,7 @@ const Menu = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <img className="h-8 w-auto" src="./Menu-logo.png" alt="Logo" />
-            {/* Put Logo Here */}
+            <img className="h-16 w-auto" src={image} alt="Logo" />
           </div>
           <div className="hidden md:block text-xl font-bold">
             <div className="ml-4 flex items-center md:ml-6 list-none">
