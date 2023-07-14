@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, Navigate, redirect } from "react-router-dom";
 import { isAuthenticated, signout } from "../auth/helper";
-import image from "./menulogo.png";
+import imageLogo from "./Shop_Nearby_Logo.png";
+import imageSignOut from "./Log_Out_Logo.png";
 
 const Menu = () => {
   const redirectToHome = () => {
@@ -24,7 +25,7 @@ const Menu = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/">
-              <img className="h-16 w-auto" src={image} alt="Logo" />
+              <img className="h-14 w-auto" src={imageLogo} alt="Logo" />
             </Link>
           </div>
           <div className="hidden md:block text-xl font-bold">
@@ -49,7 +50,7 @@ const Menu = () => {
                 <li>
                   <Link
                     to="/user/profile"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                    className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                   >
                     Dashboard
                   </Link>
@@ -93,7 +94,9 @@ const Menu = () => {
                     }}
                     className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer"
                   >
-                    {user.name} Signout
+                    <div className="flex flex-row items-center">
+                      {user.name} <img className="h-10 w-auto" src={imageSignOut} alt="Logo" />
+                    </div>
                   </span>
                 </li>
               )}
@@ -213,7 +216,7 @@ const Menu = () => {
                   }}
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer "
                 >
-                  Signout
+                  Signout <img className="h-10 w-auto" src={imageSignOut} alt="Logo" />
                 </span>
               </li>
             )}
