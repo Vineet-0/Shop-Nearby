@@ -5,7 +5,7 @@ import CheckoutForm from "./helper/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-const Payment = ({ products }) => {
+const Payment = ({ products, total }) => {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState("");
 
@@ -32,7 +32,7 @@ const Payment = ({ products }) => {
         <h1>Stripe payment</h1>
         {stripePromise && clientSecret && (
           <Elements stripe={stripePromise} options={{ clientSecret }}>
-            <CheckoutForm />
+            <CheckoutForm total={total} />
           </Elements>
         )}
       </div>

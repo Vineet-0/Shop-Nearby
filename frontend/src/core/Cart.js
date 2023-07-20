@@ -9,7 +9,7 @@ import Payment from "./Payment";
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(false);
-
+  let totalPrice = 0;
   useEffect(() => {
     setProducts(loadCart());
   }, [reload]);
@@ -19,6 +19,7 @@ const Cart = () => {
       <div>
         <div className="grid grid-cols-1 xl:grid-cols-2 text-center gap-5 mx-auto">
           {products.map((product, index) => {
+            totalPrice = totalPrice + product.price;
             return (
               <Card
                 key={index}
@@ -35,8 +36,6 @@ const Cart = () => {
     );
   };
 
-  
-
   return (
     <Base>
       <div className="flex items-center justify-center lg:items-start flex-col lg:flex-row">
@@ -47,10 +46,14 @@ const Cart = () => {
             <h3>No Products in Cart</h3>
           )}
         </div>
-        
+
         <div className=" w-4/5 xl:w-1/3 mt-4">
           <div className=" max-w-[400px] mx-auto">
-            <Payment products={products} className="mx-auto" />
+            <Payment
+              products={products}
+              total={totalPrice}
+              className="mx-auto"
+            />
           </div>
         </div>
       </div>

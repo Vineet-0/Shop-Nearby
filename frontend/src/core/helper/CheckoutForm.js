@@ -2,7 +2,7 @@ import { PaymentElement } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ total }) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -46,6 +46,7 @@ export default function CheckoutForm() {
           {isProcessing ? "Processing ... " : "Pay now"}
         </span>
       </button>
+      <button className="text-black ml-4 font-bold">₹ {total}</button>
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
