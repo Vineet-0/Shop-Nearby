@@ -15,7 +15,7 @@ const slides = [
   onePlusAd,
 ]
 
-const Home = () => {
+const Shop = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setfilterProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -74,16 +74,7 @@ const Home = () => {
           </div>
         </form>
 
-        {/* ad images  */}
-        <div className="w-[80%] flex items-center">
-          <Carousel>
-            {
-              slides.map((i) => (
-                <img src={i} alt="slideImage" className="" />
-              ))
-            }
-          </Carousel>
-        </div>
+        
 
         {/* cards */}
         <div className="flex justify-center p-4">
@@ -98,4 +89,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Shop;

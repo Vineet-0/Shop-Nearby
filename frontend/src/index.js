@@ -16,11 +16,16 @@ import UpdateCategory from "./admin/UpdateCategory";
 import Cart from "./core/Cart";
 import PaymentConfirmation from "./core/PaymentConfirmation";
 import Profile from "./user/Profile";
+import Shop from "./core/Shop";
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/shop",
+    element: <Shop />,
   },
   {
     path: "/signup",

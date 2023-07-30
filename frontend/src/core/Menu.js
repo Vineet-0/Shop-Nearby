@@ -28,14 +28,22 @@ const Menu = () => {
               <img className="h-14 w-auto" src={imageLogo} alt="Logo" />
             </Link>
           </div>
-          <div className="hidden md:block text-xl font-bold">
+          <div className="hidden md:block text-[17px]">
             <div className="ml-4 flex items-center md:ml-6 list-none">
               <li>
                 <Link
                   to="/"
-                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/shop"
+                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  Shop
                 </Link>
               </li>
               <li>
@@ -158,6 +166,14 @@ const Menu = () => {
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
               >
                 Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/shop"
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+              >
+                Shop
               </Link>
             </li>
             <li>
