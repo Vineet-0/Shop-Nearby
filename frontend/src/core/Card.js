@@ -62,7 +62,7 @@ const Card = ({
         <ImageHelper product={product} />
       </Link>
       <div className="px-8 pb-5">
-        {getRedirect()}
+        {/* {getRedirect()} */}
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-black mb-2">
           {product.name}
         </h5>

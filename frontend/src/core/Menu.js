@@ -7,11 +7,16 @@ import { loadCart } from "./helper/cartHelper";
 
 const Menu = () => {
   const [products, setProducts] = useState([]);
+  const [len, setLen] = useState(0);
   useEffect(() => {
-    setProducts(loadCart());
+    const data = loadCart();
+    setProducts(data);
+    setLen(products.length);
+  }, []);
+
+  useEffect(() => {
+    setLen(products.length);
   }, [products]);
-
-
 
   const redirectToHome = () => {
     return <Navigate to="/" />;
@@ -61,7 +66,9 @@ const Menu = () => {
                 >
                   <div className="relative">
                     Cart
-                    <p className="absolute top-0 left-[35px] h-[20px] w-[20px] flex items-center justify-center  text-sm rounded-full bg-[#75E6DA] font-semibold text-black">{products.length}</p>
+                    <p className="absolute top-0 left-[35px] h-[20px] w-[20px] flex items-center justify-center  text-sm rounded-full bg-[#75E6DA] font-semibold text-black">
+                      {len}
+                    </p>
                   </div>
                 </Link>
               </li>

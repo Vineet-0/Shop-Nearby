@@ -6,17 +6,18 @@ import Menu from "./Menu";
 import ReactStars from "react-stars";
 import { TbTruckDelivery } from "react-icons/tb";
 import { AiOutlineLink } from "react-icons/ai";
+import { addItemToCart } from "./helper/cartHelper";
+import { toast } from "react-hot-toast";
+
 
 const ProductPage = () => {
-  // function copyLinkHandler() {
-  //   var elem = document.createElement("textarea");
-  //   document.body.appendChild(elem);
-  //   elem.value = google.com;
-  //   elem.select();
-  //   document.execCommand("copy");
-  //   document.body.removeChild(elem);
-  //   document.write("Copied to clipboard!");
-  // }
+  const addToCart = () => {
+    toast.success("Item Added to Cart!");
+    addItemToCart(product, () => {
+
+    });
+  };
+
   const { productId } = useParams();
   const [product, setProduct] = useState();
   const url = `${API}/product/${productId}`;
@@ -88,7 +89,10 @@ const ProductPage = () => {
 
             {/* buttons  */}
             <div className="flex items-center gap-3 border-b-[1px] border-gray-400 py-6">
-              <button className=" hover:scale-95 transition-all duration-200 bg-white text-blue-700 border-2 border-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+              <button
+                onClick={addToCart}
+                className=" hover:scale-95 transition-all duration-200 bg-white text-blue-700 border-2 border-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              >
                 Add to cart
               </button>
 
@@ -162,7 +166,8 @@ const ProductPage = () => {
                 <p>9 Aug, 2023</p>
               </div>
               <div>
-                "Highly recommended for anyone looking for a reliable and efficient solution."
+                "Highly recommended for anyone looking for a reliable and
+                efficient solution."
               </div>
             </div>
           </div>
