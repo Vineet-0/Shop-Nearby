@@ -39,7 +39,7 @@ const Cart = () => {
   return (
     <Base>
       <div className="flex items-center justify-center lg:items-start flex-col lg:flex-row">
-        <div className="w-4/5 lg:w-2/3">
+        <div className="w-full sm:w-4/5 lg:w-2/3">
           {products.length > 0 ? (
             loadAllProducts(products)
           ) : (
@@ -47,7 +47,7 @@ const Cart = () => {
           )}
         </div>
 
-        <div className=" w-4/5 xl:w-1/3 mt-4">
+        <div className=" w-full sm:w-4/5 xl:w-1/3 mt-4">
           <div className=" max-w-[400px] mx-auto">
             <Payment
               products={products}

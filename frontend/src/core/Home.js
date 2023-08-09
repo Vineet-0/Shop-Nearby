@@ -61,7 +61,7 @@ const Home = () => {
           {/* search bar */}
           <div className="flex items-center text-black gap-2">
             <input
-              className=" py-3 px-2 text-sm w-[400px] rounded-md "
+              className=" py-2 px-4 text-sm w-[400px] rounded-md "
               type="text"
               placeholder="Search..."
               value={searchQuery}
@@ -69,13 +69,13 @@ const Home = () => {
             />
             <button
               // className="m-5 border-2 text-black text-lg p-3 border-black"
-              className="w-[100px] mx-auto my-5 sm:m-5 px-4 py-2 text-white bg-[#05445E] text-md font-semibold rounded-md hover:bg-[#189AB4] "
+              className="w-[100px] mx-auto my-2 sm:m-2 px-4 py-2 text-white bg-[#05445E] text-md font-semibold rounded-md hover:bg-[#189AB4] "
               type="submit">Search</button>
           </div>
         </form>
 
         {/* ad images  */}
-        <div className="w-[80%] flex items-center">
+        <div className="w-full md:w-[90%] py-4 sm:px-4">
           <Carousel>
             {
               slides.map((i) => (
@@ -86,7 +86,7 @@ const Home = () => {
         </div>
 
         {/* cards */}
-        <div className="flex justify-center p-4">
+        <div className="flex justify-center py-4 sm:px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {filteredProducts.map((product, index) => {
               return <Card key={index} product={product} />;

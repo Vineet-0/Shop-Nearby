@@ -84,7 +84,7 @@ const Signin = () => {
 
             <input
               type="text"
-              className="block border border-grey-light w-full px-5 py-3 rounded-full mb-4"
+              className="block border border-grey-light w-full px-4 py-2 rounded-md mb-4"
               name="email"
               placeholder="Email"
               value={email}
@@ -93,7 +93,7 @@ const Signin = () => {
 
             <input
               type="password"
-              className="block border border-grey-light w-full px-5 py-3  rounded-full mb-4"
+              className="block border border-grey-light w-full px-4 py-2 rounded-md mb-4"
               name="password"
               placeholder="Password"
               value={password}
@@ -103,7 +103,7 @@ const Signin = () => {
             <button
               onClick={onSubmit}
               type="submit"
-              className="w-full text-center text-xl font-bold px-5 py-3 rounded-full bg-gray-800 text-white hover:bg-[#75E6DA] hover:text-black focus:outline-none mb-2"
+              className="w-full text-center text-xl font-bold py-2 rounded-md bg-gray-800 text-white hover:bg-[#75E6DA] hover:text-black focus:outline-none mb-3"
             >
               Sign in
             </button>
