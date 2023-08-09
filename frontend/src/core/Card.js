@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ImageHelper from "./helper/ImageHelper";
 import { addItemToCart, removeItemFromCart } from "./helper/cartHelper";
+import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Card = ({
   product,
@@ -13,6 +15,7 @@ const Card = ({
   const [count, setCount] = useState(product.count);
 
   const addToCart = () => {
+    toast.success("Item Added to Cart!")
     addItemToCart(product, () => {
       setRedirect(true);
     });
@@ -55,7 +58,9 @@ const Card = ({
 
   return (
     <div className="flex flex-col w-full bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black shadow-none  hover:shadow-2xl">
-      <ImageHelper product={product} />
+      <Link to={`/products/${product._id}`}>
+        <ImageHelper product={product} />
+      </Link>
       <div className="px-8 pb-5">
         {getRedirect()}
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-black mb-2">
@@ -64,7 +69,7 @@ const Card = ({
         <h2>{product.description}</h2>
         <div className="flex items-center justify-between mt-3">
           <span className="text-3xl font-bold text-gray-900 dark:text-black">
-          ₹{product.price}
+            ₹{product.price}
           </span>
           {showAddToCart()}
           {showRemoveFromCart()}

@@ -17,6 +17,10 @@ import Cart from "./core/Cart";
 import PaymentConfirmation from "./core/PaymentConfirmation";
 import Profile from "./user/Profile";
 import Shop from "./core/Shop";
+import store from "./redux/store";
+import { Provider } from "react-redux";
+import ProductPage from "./core/ProductPage";
+import { Toaster } from "react-hot-toast";
 
 const appRouter = createBrowserRouter([
   {
@@ -88,6 +92,10 @@ const appRouter = createBrowserRouter([
     ),
   },
   {
+    path: "/products/:productId",
+    element: <ProductPage />,
+  },
+  {
     path: "/admin/category/update/:categoryId",
     element: (
       <AdminRoute>
@@ -115,4 +123,9 @@ const appRouter = createBrowserRouter([
 
 const container = document.getElementById("app");
 const root = createRoot(container);
-root.render(<RouterProvider router={appRouter} />);
+root.render(
+  <Provider store={store}>
+    <Toaster position="top-right" reverseOrder={false} />
+    <RouterProvider router={appRouter} />
+  </Provider>
+);
