@@ -8,15 +8,26 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { AiOutlineLink } from "react-icons/ai";
 import { addItemToCart } from "./helper/cartHelper";
 import { toast } from "react-hot-toast";
-
+import { useContext } from "react";
+import CartContext from "../context/cartContext";
+import { loadCart } from "./helper/cartHelper";
 
 const ProductPage = () => {
+
   const addToCart = () => {
     toast.success("Item Added to Cart!");
     addItemToCart(product, () => {
-
+      a.setState(a.state + 1);
     });
   };
+
+  const a = useContext(CartContext);
+
+  useEffect(() => {
+    const data = loadCart();
+    const len = data.length;
+    a.setState(len);
+  }, []);
 
   const { productId } = useParams();
   const [product, setProduct] = useState();

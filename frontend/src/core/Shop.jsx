@@ -5,12 +5,22 @@ import Card from "./Card";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/actions/productActions";
+import { useContext } from "react";
+import { loadCart } from "./helper/cartHelper";
+import CartContext from "../context/cartContext";
 
 const Shop = () => {
   const [prods, setProds] = useState([]);
   const [filteredProducts, setfilterProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const a = useContext(CartContext);
+
+  useEffect(() => {
+    const data = loadCart();
+    const len = data.length;
+    a.setState(len);
+  }, []);
   const dispatch = useDispatch();
   const products = useSelector((state) => state);
 

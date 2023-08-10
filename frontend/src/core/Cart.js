@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { API } from "../backend";
+import React, { useEffect, useState, useContext } from "react";
 import Base from "../core/Base";
 import Card from "./Card";
-import { getProducts } from "./helper/coreapicalls";
 import { loadCart } from "./helper/cartHelper";
 import Payment from "./Payment";
+import { loadCart } from "./helper/cartHelper";
+import CartContext from "../context/cartContext";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -13,6 +13,14 @@ const Cart = () => {
   useEffect(() => {
     setProducts(loadCart());
   }, [reload]);
+
+  const a = useContext(CartContext);
+
+  useEffect(() => {
+    const data = loadCart();
+    const len = data.length;
+    a.setState(len);
+  }, []);
 
   const loadAllProducts = (products) => {
     return (
