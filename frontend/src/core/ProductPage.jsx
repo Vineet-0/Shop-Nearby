@@ -13,7 +13,6 @@ import CartContext from "../context/cartContext";
 import { loadCart } from "./helper/cartHelper";
 
 const ProductPage = () => {
-
   const addToCart = () => {
     toast.success("Item Added to Cart!");
     addItemToCart(product, () => {
@@ -23,9 +22,9 @@ const ProductPage = () => {
 
   const a = useContext(CartContext);
 
-  useEffect(() => {
+  useEffect( () => {
     const data = loadCart();
-    const len = data.length;
+    const len = data?.length;
     a.setState(len);
   }, []);
 

@@ -20,9 +20,9 @@ const Home = () => {
 
   const a = useContext(CartContext);
 
-  useEffect(() => {
-    const data = loadCart();
-    const len = data.length;
+  useEffect( () => {
+    const data =  loadCart();
+    const len = data?.length;
     a.setState(len);
   }, []);
 

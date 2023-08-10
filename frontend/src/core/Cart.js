@@ -18,7 +18,7 @@ const Cart = () => {
 
   useEffect(() => {
     const data = loadCart();
-    const len = data.length;
+    const len = data?.length;
     a.setState(len);
   }, []);
 

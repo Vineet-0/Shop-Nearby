@@ -14,7 +14,7 @@ const Menu = () => {
   useEffect(() => {
     const data = loadCart();
     setProducts(data);
-    const len = products.length;
+    const len = products?.length;
     a.setState(len);
   }, []);
 

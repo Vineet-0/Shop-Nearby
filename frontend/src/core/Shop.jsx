@@ -17,8 +17,8 @@ const Shop = () => {
   const a = useContext(CartContext);
 
   useEffect(() => {
-    const data = loadCart();
-    const len = data.length;
+    const data =  loadCart();
+    const len = data?.length;
     a.setState(len);
   }, []);
   const dispatch = useDispatch();
