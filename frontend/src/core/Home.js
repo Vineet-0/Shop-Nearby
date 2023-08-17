@@ -65,7 +65,7 @@ const Home = () => {
     <Base>
       <div className="flex flex-col items-center">
         {/* search bar */}
-        <form onSubmit={handleSubmit} className="h-[50px] flex justify-center">
+        {/* <form onSubmit={handleSubmit} className="h-[50px] flex justify-center">
           <div className="flex items-center justify-center text-black gap-2">
             <input
               className=" py-2 px-4 text-sm w-[400px] rounded-md "
@@ -82,7 +82,7 @@ const Home = () => {
               Search
             </button>
           </div>
-        </form>
+        </form> */}
 
         {/* ad images  */}
         <div className="w-full md:w-[90%] max-h-[600px] flex flex-center py-4 sm:px-4">
