@@ -46,17 +46,19 @@ const Cart = () => {
 
   return (
     <Base>
-      <div className="flex items-center justify-center lg:items-start flex-col lg:flex-row">
-        <div className="w-full sm:w-4/5 lg:w-2/3">
-          {products.length > 0 ? (
-            loadAllProducts(products)
-          ) : (
-            <h3>No Products in Cart</h3>
-          )}
+      <div className="px-5 flex items-center justify-center lg:items-start flex-col lg:flex-row">
+        <div className="flex-2 max-w-[800px]">
+            {products.length > 0 ? (
+              loadAllProducts(products)
+            ) : (
+              <h3 className="text-black font-semibold text-lg">
+                No Products in Cart
+              </h3>
+            )}
         </div>
 
-        <div className=" w-full sm:w-4/5 xl:w-1/3 mt-4">
-          <div className=" max-w-[400px] mx-auto">
+        <div className="flex-1">
+          <div className=" max-w-[400px] mx-auto" >
             <Payment
               products={products}
               total={totalPrice}

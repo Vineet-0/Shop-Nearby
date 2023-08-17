@@ -61,7 +61,7 @@ const Card = ({
       <Link to={`/products/${product._id}`}>
         <ImageHelper product={product} />
       </Link>
-      <div className="px-8 pb-5">
+      <div className="px-3 pb-3">
         {/* {getRedirect()} */}
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-black mb-2">
           {product.name}

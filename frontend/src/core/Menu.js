@@ -46,7 +46,7 @@ const Menu = () => {
               <li>
                 <Link
                   to="/"
-                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                 >
                   Home
                 </Link>
@@ -54,7 +54,7 @@ const Menu = () => {
               <li>
                 <Link
                   to="/shop"
-                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                 >
                   Shop
                 </Link>
@@ -62,7 +62,8 @@ const Menu = () => {
               <li>
                 <Link
                   to="/cart"
-                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+
+                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                 >
                   <div className="flex flex-row items-center">
                     Cart
@@ -76,7 +77,8 @@ const Menu = () => {
                 <li>
                   <Link
                     to="/user/profile"
-                    className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+
+                    className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                   >
                     Dashboard
                   </Link>
@@ -86,7 +88,8 @@ const Menu = () => {
                 <li>
                   <Link
                     to="/admin/dashboard"
-                    className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+
+                    className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                   >
                     A. Dashboard
                   </Link>
@@ -97,7 +100,7 @@ const Menu = () => {
                   <li>
                     <Link
                       to="/signup"
-                      className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                      className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                     >
                       SignUp
                     </Link>
@@ -105,7 +108,8 @@ const Menu = () => {
                   <li>
                     <Link
                       to="/signin"
-                      className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+
+                      className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                     >
                       SignIn
                     </Link>
@@ -118,7 +122,7 @@ const Menu = () => {
                     onClick={() => {
                       signout(() => setSignout(true));
                     }}
-                    className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer"
+                    className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent hover:cursor-pointer"
                   >
                     <div className="flex flex-row items-center">
                       {user.name}{" "}
@@ -186,7 +190,7 @@ const Menu = () => {
             <li>
               <Link
                 to="/"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent "
               >
                 Home
               </Link>
@@ -194,7 +198,7 @@ const Menu = () => {
             <li>
               <Link
                 to="/shop"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent "
               >
                 Shop
               </Link>
@@ -202,7 +206,7 @@ const Menu = () => {
             <li>
               <Link
                 to="/cart"
-                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent "
               >
                 Cart
               </Link>
@@ -211,7 +215,7 @@ const Menu = () => {
               <li>
                 <Link
                   to="/user/dashboard"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent "
                 >
                   Dashboard
                 </Link>
@@ -221,7 +225,7 @@ const Menu = () => {
               <li>
                 <Link
                   to="/admin/dashboard"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent "
                 >
                   A. Dashboard
                 </Link>
@@ -232,7 +236,7 @@ const Menu = () => {
                 <li>
                   <Link
                     to="/signup"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent "
                   >
                     SignUp
                   </Link>
@@ -240,7 +244,7 @@ const Menu = () => {
                 <li>
                   <Link
                     to="/signin"
-                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent "
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent "
                   >
                     SignIn
                   </Link>
@@ -253,7 +257,7 @@ const Menu = () => {
                   onClick={() => {
                     signout(() => setSignout(true));
                   }}
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer "
+                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent hover:cursor-pointer "
                 >
                   Signout{" "}
                   <img className="h-10 w-auto" src={imageSignOut} alt="Logo" />
