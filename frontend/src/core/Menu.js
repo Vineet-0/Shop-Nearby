@@ -34,7 +34,7 @@ const Menu = () => {
 
   return (
     <nav className="bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link to="/">
@@ -62,11 +62,12 @@ const Menu = () => {
               <li>
                 <Link
                   to="/cart"
+
                   className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                 >
-                  <div className="relative">
+                  <div className="flex flex-row items-center">
                     Cart
-                    <p className="absolute top-0 left-[35px] h-[20px] w-[20px] flex items-center justify-center  text-sm rounded-full bg-[#75E6DA] font-semibold text-black">
+                    <p className=" ml-[6px] h-[20px] w-[20px] flex items-center justify-center  text-sm rounded-full bg-[#75E6DA] font-semibold text-black">
                       {a.state}
                     </p>
                   </div>
@@ -76,6 +77,7 @@ const Menu = () => {
                 <li>
                   <Link
                     to="/user/profile"
+
                     className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                   >
                     Dashboard
@@ -86,6 +88,7 @@ const Menu = () => {
                 <li>
                   <Link
                     to="/admin/dashboard"
+
                     className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                   >
                     A. Dashboard
@@ -105,6 +108,7 @@ const Menu = () => {
                   <li>
                     <Link
                       to="/signin"
+
                       className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                     >
                       SignIn

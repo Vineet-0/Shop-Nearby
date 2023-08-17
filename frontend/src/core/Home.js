@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { API } from "../backend";
 import Base from "../core/Base";
 import Card from "./Card";
+import Card_V from "./Card Vertical";
 import { getProducts } from "./helper/coreapicalls";
 import Carousel from "../component/Carousel";
 import headphoneAd from "../../assets/headphoneGirlAd2.png";
@@ -63,11 +64,11 @@ const Home = () => {
   return (
     <Base>
       <div className="flex flex-col items-center">
-        <form onSubmit={handleSubmit}>
-          {/* search bar */}
-          <div className="flex items-center text-black gap-2">
+        {/* search bar */}
+        <form onSubmit={handleSubmit} className="h-[50px] flex justify-center">
+          <div className="flex items-center justify-center text-black gap-2">
             <input
-              className=" py-3 px-2 text-sm w-[400px] rounded-md "
+              className=" py-2 px-4 text-sm w-[400px] rounded-md "
               type="text"
               placeholder="Search..."
               value={searchQuery}
@@ -76,20 +77,59 @@ const Home = () => {
             <button
               // className="m-5 border-2 text-black text-lg p-3 border-black"
               className="w-[100px] mx-auto my-5 sm:m-5 px-4 py-2 text-white bg-[#05445E] text-md font-semibold rounded-md hover:bg-[#189AB4] "
-              type="submit"
-            >
-              Search
-            </button>
+              type="submit">Search</button>
           </div>
         </form>
 
         {/* ad images  */}
-        <div className="w-[80%] flex items-center">
+        <div className="w-full md:w-[90%] max-h-[600px] flex flex-center py-4 sm:px-4">
           <Carousel>
             {slides.map((i) => (
               <img src={i} alt="slideImage" className="" />
             ))}
           </Carousel>
+        </div>
+
+        <div className="ml-5 mr-auto px-4 py-2 text-xl bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black  shadow-none  hover:shadow-2xl">
+          <h1 className=" text-black font-bold">
+            Smart Phone
+          </h1>
+        </div>
+
+        <div className="relative w-full">
+          <div className="flex overflow-x-auto gap-8 scrollbar-none scroll-smooth pl-4 pt-4 px-3 pb-4">
+            {filteredProducts.map((product, index) => {
+              return <Card_V key={index} product={product} />;
+            })}
+          </div>
+        </div>
+
+        <div className="ml-5 mr-auto px-4 py-2 text-xl bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black  shadow-none  hover:shadow-2xl">
+          <h1 className=" text-black font-bold">
+            Laptop
+          </h1>
+        </div>
+
+        <div className="relative w-full">
+          <div className="flex overflow-x-auto gap-8 scrollbar-none scroll-smooth pl-4 pt-4 px-3 pb-4">
+            {filteredProducts.map((product, index) => {
+              return <Card_V key={index} product={product} />;
+            })}
+          </div>
+        </div>
+
+        <div className="ml-5 mr-auto px-4 py-2 text-xl bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black  shadow-none  hover:shadow-2xl">
+          <h1 className=" text-black font-bold">
+            Smart Watch
+          </h1>
+        </div>
+
+        <div className="relative w-full">
+          <div className="flex overflow-x-auto gap-8 scrollbar-none scroll-smooth pl-4 pt-4 px-3 pb-4">
+            {filteredProducts.map((product, index) => {
+              return <Card_V key={index} product={product} />;
+            })}
+          </div>
         </div>
 
         {/* cards */}
@@ -100,6 +140,21 @@ const Home = () => {
             })}
           </div>
         </div>
+
+        <div className="ml-5 mr-auto px-4 py-2 text-xl bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black  shadow-none  hover:shadow-2xl">
+          <h1 className=" text-black font-bold">
+            Recently Viewed
+          </h1>
+        </div>
+
+        <div className="relative w-full">
+          <div className="flex overflow-x-auto gap-8 scrollbar-none scroll-smooth pl-4 pt-4 px-3 pb-4">
+            {filteredProducts.map((product, index) => {
+              return <Card_V key={index} product={product} />;
+            })}
+          </div>
+        </div>
+        
       </div>
     </Base>
   );

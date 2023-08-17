@@ -47,7 +47,7 @@ const Signup = () => {
             <h1 className="mb-6 text-white text-3xl font-bold text-center">Sign up</h1>
             <input
               type="text"
-              className="block border border-grey-light w-full px-5 py-2 rounded-md mb-4"
+              className="block border border-grey-light w-full px-4 py-2 rounded-md mb-4"
               name="fullname"
               placeholder="Full Name"
               onChange={handleChange("name")}
@@ -56,7 +56,7 @@ const Signup = () => {
 
             <input
               type="text"
-              className="block border border-grey-light w-full px-5 py-2 rounded-md mb-4"
+              className="block border border-grey-light w-full px-4 py-2 rounded-md mb-4"
               name="email"
               placeholder="Email"
               onChange={handleChange("email")}
@@ -65,7 +65,7 @@ const Signup = () => {
 
             <input
               type="password"
-              className="block border border-grey-light w-full px-5 py-2 rounded-md mb-4"
+              className="block border border-grey-light w-full px-4 py-2 rounded-md mb-4"
               name="password"
               placeholder="Password"
               onChange={handleChange("password")}
@@ -75,7 +75,7 @@ const Signup = () => {
             <button
               type="submit"
               onClick={onSubmit}
-              className="w-full text-center text-xl font-bold py-2 rounded-md bg-gray-800 text-white hover:bg-[#75E6DA] hover:text-black focus:outline-none mb-2"
+              className="w-full text-center text-xl font-bold py-2 rounded-md bg-gray-800 text-white hover:bg-[#75E6DA] hover:text-black focus:outline-none mb-3"
             >
               Create Account
             </button>
