@@ -72,11 +72,11 @@ const Shop = () => {
   return (
     <Base>
       <div className="flex flex-col items-center">
+        {/* search bar */}
         <form onSubmit={handleSubmit}>
-          {/* search bar */}
           <div className="flex items-center text-black gap-2">
             <input
-              className=" py-3 px-2 text-sm w-[400px] rounded-md "
+              className=" py-3 px-4 text-sm w-[400px] rounded-md "
               type="text"
               placeholder="Search..."
               value={searchQuery}
