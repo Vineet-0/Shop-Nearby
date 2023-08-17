@@ -58,7 +58,7 @@ const Shop = () => {
       .get(`${API}/products`)
       .catch((err) => console.log(err));
 
-    // console.log("DATA ", response.data);
+    console.log("DATA ", response.data);
     dispatch(setProducts(response.data));
     setProds(response.data);
     setfilterProducts(response.data);
@@ -92,8 +92,8 @@ const Shop = () => {
         </form>
 
         {/* cards */}
-        <div className="flex justify-center p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="flex justify-center p-4 max-w-[1200px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
             {filteredProducts.map((product, index) => {
               return <Card key={index} product={product} />;
             })}
