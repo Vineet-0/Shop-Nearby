@@ -21,8 +21,8 @@ const Home = () => {
 
   const a = useContext(CartContext);
 
-  useEffect( () => {
-    const data =  loadCart();
+  useEffect(() => {
+    const data = loadCart();
     const len = data?.length;
     a.setState(len);
   }, []);
@@ -77,7 +77,10 @@ const Home = () => {
             <button
               // className="m-5 border-2 text-black text-lg p-3 border-black"
               className="w-[100px] mx-auto my-5 sm:m-5 px-4 py-2 text-white bg-[#05445E] text-md font-semibold rounded-md hover:bg-[#189AB4] "
-              type="submit">Search</button>
+              type="submit"
+            >
+              Search
+            </button>
           </div>
         </form>
 
@@ -91,9 +94,7 @@ const Home = () => {
         </div>
 
         <div className="ml-5 mr-auto px-4 py-2 text-xl bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black  shadow-none  hover:shadow-2xl">
-          <h1 className=" text-black font-bold">
-            Smart Phone
-          </h1>
+          <h1 className=" text-black font-bold">Smart Phone</h1>
         </div>
 
         <div className="relative w-full">
@@ -105,9 +106,7 @@ const Home = () => {
         </div>
 
         <div className="ml-5 mr-auto px-4 py-2 text-xl bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black  shadow-none  hover:shadow-2xl">
-          <h1 className=" text-black font-bold">
-            Laptop
-          </h1>
+          <h1 className=" text-black font-bold">Laptop</h1>
         </div>
 
         <div className="relative w-full">
@@ -119,9 +118,7 @@ const Home = () => {
         </div>
 
         <div className="ml-5 mr-auto px-4 py-2 text-xl bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black  shadow-none  hover:shadow-2xl">
-          <h1 className=" text-black font-bold">
-            Smart Watch
-          </h1>
+          <h1 className=" text-black font-bold">Smart Watch</h1>
         </div>
 
         <div className="relative w-full">
@@ -133,18 +130,16 @@ const Home = () => {
         </div>
 
         {/* cards */}
-        <div className="flex justify-center p-4 max-w-[1170px]">
+        {/* <div className="flex justify-center p-4 max-w-[1170px]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
             {filteredProducts.map((product, index) => {
               return <Card key={index} product={product} />;
             })}
           </div>
-        </div>
+        </div> */}
 
         <div className="ml-5 mr-auto px-4 py-2 text-xl bg-white border rounded-lg dark:bg-white dark:border-gray-300 dark:text-black  shadow-none  hover:shadow-2xl">
-          <h1 className=" text-black font-bold">
-            Recently Viewed
-          </h1>
+          <h1 className=" text-black font-bold">Recently Viewed</h1>
         </div>
 
         <div className="relative w-full">
@@ -154,7 +149,6 @@ const Home = () => {
             })}
           </div>
         </div>
-        
       </div>
     </Base>
   );
