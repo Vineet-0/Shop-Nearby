@@ -1,10 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, Navigate, redirect } from "react-router-dom";
 import { isAuthenticated, signout } from "../auth/helper";
 import imageLogo from "./Shop_Nearby_Logo.png";
 import imageSignOut from "./Log_Out_Logo.png";
+import { loadCart } from "./helper/cartHelper";
+import { useContext } from "react";
+import CartContext from "../context/cartContext";
 
 const Menu = () => {
+  const [products, setProducts] = useState([]);
+  const a = useContext(CartContext);
+
+  useEffect(() => {
+    const data = loadCart();
+    setProducts(data);
+    const len = products?.length;
+    a.setState(len);
+  }, []);
+
   const redirectToHome = () => {
     return <Navigate to="/" />;
   };
@@ -51,7 +64,12 @@ const Menu = () => {
                   to="/cart"
                   className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
-                  Cart
+                  <div className="relative">
+                    Cart
+                    <p className="absolute top-0 left-[35px] h-[20px] w-[20px] flex items-center justify-center  text-sm rounded-full bg-[#75E6DA] font-semibold text-black">
+                      {a.state}
+                    </p>
+                  </div>
                 </Link>
               </li>
               {isAuthenticated() && isAuthenticated().user.role === 0 && (
@@ -103,7 +121,12 @@ const Menu = () => {
                     className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer"
                   >
                     <div className="flex flex-row items-center">
-                      {user.name} <img className="h-10 w-auto" src={imageSignOut} alt="Logo" />
+                      {user.name}{" "}
+                      <img
+                        className="h-10 w-auto"
+                        src={imageSignOut}
+                        alt="Logo"
+                      />
                     </div>
                   </span>
                 </li>
@@ -232,7 +255,8 @@ const Menu = () => {
                   }}
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-[#75E6DA] dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:hover:cursor-pointer "
                 >
-                  Signout <img className="h-10 w-auto" src={imageSignOut} alt="Logo" />
+                  Signout{" "}
+                  <img className="h-10 w-auto" src={imageSignOut} alt="Logo" />
                 </span>
               </li>
             )}

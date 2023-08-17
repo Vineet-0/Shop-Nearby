@@ -4,21 +4,27 @@ import Base from "../core/Base";
 import Card from "./Card";
 import { getProducts } from "./helper/coreapicalls";
 import Carousel from "../component/Carousel";
-import headphoneAd from "../../assets/headphoneGirlAd2.png"
-import iphoneAd from "../../assets/iphoneAd2.png"
-import onePlusAd from "../../assets/onePlusAd.png"
+import headphoneAd from "../../assets/headphoneGirlAd2.png";
+import iphoneAd from "../../assets/iphoneAd2.png";
+import onePlusAd from "../../assets/onePlusAd.png";
+import { useContext } from "react";
+import { loadCart } from "./helper/cartHelper";
+import CartContext from "../context/cartContext";
 
-
-const slides = [
-  headphoneAd,
-  iphoneAd,
-  onePlusAd,
-]
+const slides = [headphoneAd, iphoneAd, onePlusAd];
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setfilterProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const a = useContext(CartContext);
+
+  useEffect( () => {
+    const data =  loadCart();
+    const len = data?.length;
+    a.setState(len);
+  }, []);
 
   function filterData(searchQuery, products) {
     const data = products.filter((product) => {
@@ -69,7 +75,7 @@ const Home = () => {
             />
             <button
               // className="m-5 border-2 text-black text-lg p-3 border-black"
-              className="w-[100px] mx-auto my-2 sm:m-2 px-4 py-2 text-white bg-[#05445E] text-md font-semibold rounded-md hover:bg-[#189AB4] "
+              className="w-[100px] mx-auto my-5 sm:m-5 px-4 py-2 text-white bg-[#05445E] text-md font-semibold rounded-md hover:bg-[#189AB4] "
               type="submit">Search</button>
           </div>
         </form>
@@ -77,11 +83,9 @@ const Home = () => {
         {/* ad images  */}
         <div className="w-full md:w-[90%] py-4 sm:px-4">
           <Carousel>
-            {
-              slides.map((i) => (
-                <img src={i} alt="slideImage" className="" />
-              ))
-            }
+            {slides.map((i) => (
+              <img src={i} alt="slideImage" className="" />
+            ))}
           </Carousel>
         </div>
 

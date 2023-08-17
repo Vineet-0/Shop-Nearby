@@ -8,3 +8,4 @@ testback/
 .parcel-cache/
 
 dist/
+.vercel
