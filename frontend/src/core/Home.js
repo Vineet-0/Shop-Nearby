@@ -39,16 +39,16 @@ const Home = () => {
     });
   };
 
-  const getCategories = async() => {
-    const cat = await axios.get(`${API}/categories`);
-    setCategories(cat.data);
-  };
+  // const getCategories = async() => {
+  //   const cat = await axios.get(`${API}/categories`);
+  //   setCategories(cat.data);
+  // };
 
   useEffect(() => {
     loadAllProducts();
-    getCategories();
+    // getCategories();
     console.log(products);
-    console.log("CATEGORIES, ", categories);
+    // console.log("CATEGORIES, ", categories);
   }, []);
 
   return (

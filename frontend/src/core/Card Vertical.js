@@ -69,7 +69,7 @@ const Card = ({
         </h5>
       </div>
 
-      <div className="px-8 pb-5 mt-auto">
+      {/* <div className="px-8 pb-5 mt-auto"> */}
         {/* {getRedirect()} */}
         <div className="flex items-center justify-between mt-3">
           <span className="text-lg font-bold text-gray-900 dark:text-black">
@@ -77,7 +77,7 @@ const Card = ({
           </span>
           {/* {showAddToCart()} */}
           {/* {showRemoveFromCart()} */}
-        </div>
+        {/* </div> */}
         
       </div>
     </div>
