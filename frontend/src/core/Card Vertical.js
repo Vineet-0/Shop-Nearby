@@ -68,15 +68,17 @@ const Card = ({
           {product.name}
         </h5>
       </div>
+
       <div className="px-8 pb-5 mt-auto">
         {/* {getRedirect()} */}
         <div className="flex items-center justify-between mt-3">
           <span className="text-lg font-bold text-gray-900 dark:text-black">
-            ₹{product.price}
+            {/* ₹{product.price} */}
           </span>
-          {showAddToCart()}
-          {showRemoveFromCart()}
+          {/* {showAddToCart()} */}
+          {/* {showRemoveFromCart()} */}
         </div>
+        
       </div>
     </div>
   );

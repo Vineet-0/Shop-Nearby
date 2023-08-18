@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { API } from "../backend";
 import Base from "../core/Base";
 import Card from "./Card";
@@ -17,7 +18,7 @@ const slides = [headphoneAd, iphoneAd, onePlusAd];
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setfilterProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [categories, setCategories] = useState([]);
 
   const a = useContext(CartContext);
 
@@ -26,24 +27,6 @@ const Home = () => {
     const len = data?.length;
     a.setState(len);
   }, []);
-
-  function filterData(searchQuery, products) {
-    const data = products.filter((product) => {
-      return product.name.toLowerCase()?.includes(searchQuery.toLowerCase());
-    });
-    return data;
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const filteredData = filterData(searchQuery, products);
-    setfilterProducts(filteredData);
-    console.log("printing filterd data ", filteredData);
-  };
-
-  const handleChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
 
   const loadAllProducts = () => {
     getProducts().then((data) => {
@@ -56,9 +39,16 @@ const Home = () => {
     });
   };
 
+  const getCategories = async() => {
+    const cat = await axios.get(`${API}/categories`);
+    setCategories(cat.data);
+  };
+
   useEffect(() => {
     loadAllProducts();
+    getCategories();
     console.log(products);
+    console.log("CATEGORIES, ", categories);
   }, []);
 
   return (
@@ -87,8 +77,8 @@ const Home = () => {
         {/* ad images  */}
         <div className="w-full md:w-[90%] max-h-[600px] flex flex-center py-4 sm:px-4">
           <Carousel>
-            {slides.map((i) => (
-              <img src={i} alt="slideImage" className="" />
+            {slides.map((i, index) => (
+              <img src={i} key={index} alt="slideImage" />
             ))}
           </Carousel>
         </div>
@@ -99,8 +89,8 @@ const Home = () => {
 
         <div className="relative w-full">
           <div className="flex overflow-x-auto gap-8 scrollbar-none scroll-smooth pl-4 pt-4 px-3 pb-4">
-            {filteredProducts.map((product, index) => {
-              return <Card_V key={index} product={product} />;
+            {filteredProducts.map((product) => {
+              return (product.category.name === "Phone") ? <Card_V key={product._id} product={product} /> : <></>;
             })}
           </div>
         </div>
@@ -111,8 +101,8 @@ const Home = () => {
 
         <div className="relative w-full">
           <div className="flex overflow-x-auto gap-8 scrollbar-none scroll-smooth pl-4 pt-4 px-3 pb-4">
-            {filteredProducts.map((product, index) => {
-              return <Card_V key={index} product={product} />;
+            {filteredProducts.map((product) => {
+              return (product.category.name === "Laptop") ? <Card_V key={product._id} product={product} /> : <></>;
             })}
           </div>
         </div>
@@ -123,8 +113,8 @@ const Home = () => {
 
         <div className="relative w-full">
           <div className="flex overflow-x-auto gap-8 scrollbar-none scroll-smooth pl-4 pt-4 px-3 pb-4">
-            {filteredProducts.map((product, index) => {
-              return <Card_V key={index} product={product} />;
+            {filteredProducts.map((product) => {
+              return (product.category.name === "smart watch") ? <Card_V key={product._id} product={product} /> : <></>;
             })}
           </div>
         </div>
@@ -144,8 +134,8 @@ const Home = () => {
 
         <div className="relative w-full">
           <div className="flex overflow-x-auto gap-8 scrollbar-none scroll-smooth pl-4 pt-4 px-3 pb-4">
-            {filteredProducts.map((product, index) => {
-              return <Card_V key={index} product={product} />;
+            {filteredProducts.map((product) => {
+              return <Card_V key={product._id} product={product} />;
             })}
           </div>
         </div>
