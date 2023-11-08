@@ -7,6 +7,9 @@ import { loadCart } from "./helper/cartHelper";
 import { useContext } from "react";
 import CartContext from "../context/cartContext";
 
+import { BiSolidDashboard } from "react-icons/bi"
+import { FiLogOut, FiShoppingCart , FiSearch } from "react-icons/fi"
+
 const Menu = () => {
   const [products, setProducts] = useState([]);
   const a = useContext(CartContext);
@@ -41,46 +44,53 @@ const Menu = () => {
               <img className="h-14 w-auto" src={imageLogo} alt="Logo" />
             </Link>
           </div>
-          <div className="hidden md:block text-[17px]">
+          <div className="hidden md:block">
             <div className="ml-4 flex items-center md:ml-6 list-none">
-              <li>
+              {/* <li>
                 <Link
                   to="/"
-                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
+                  className="block py-2 pl-3 pr-4 mx-4 text-white rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                 >
                   Home
                 </Link>
-              </li>
+              </li> */}
+
+              {/* shop */}
+
               <li>
                 <Link
                   to="/shop"
-                  className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
+                  className="block py-2 pl-3 pr-4 mx-4 text-white rounded font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                 >
-                  Shop
+                  <FiSearch className="text-2xl"/>
                 </Link>
               </li>
+
+              {/* Cart */}
+
               <li>
                 <Link
                   to="/cart"
-
                   className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                 >
                   <div className="flex flex-row items-center">
-                    Cart
-                    <p className=" ml-[6px] h-[20px] w-[20px] flex items-center justify-center  text-sm rounded-full bg-[#75E6DA] font-semibold text-black">
+                    <FiShoppingCart className="text-2xl"/>
+                    <p className="h-[20px] w-[20px] mb-5 ml-[-8px] flex items-center justify-center  text-xs rounded-full bg-[#75E6DA] font-semibold text-black">
                       {a.state}
                     </p>
                   </div>
                 </Link>
               </li>
+
+              {/* Dashboard */}
+
               {isAuthenticated() && isAuthenticated().user.role === 0 && (
                 <li>
                   <Link
                     to="/user/profile"
-
                     className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                   >
-                    Dashboard
+                    <BiSolidDashboard className="text-2xl"/>
                   </Link>
                 </li>
               )}
@@ -91,16 +101,18 @@ const Menu = () => {
 
                     className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                   >
-                    A. Dashboard
+                    <BiSolidDashboard className="text-2xl"/>
                   </Link>
                 </li>
               )}
+
+
               {!isAuthenticated() && (
                 <>
                   <li>
                     <Link
                       to="/signup"
-                      className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
+                      className="block py-2 pl-3 pr-4 mx-4 font-bold text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                     >
                       SignUp
                     </Link>
@@ -109,7 +121,7 @@ const Menu = () => {
                     <Link
                       to="/signin"
 
-                      className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
+                      className="block py-2 pl-3 pr-4 mx-4 font-bold text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
                     >
                       SignIn
                     </Link>
@@ -125,12 +137,13 @@ const Menu = () => {
                     className="block py-2 pl-3 pr-4 mx-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent hover:cursor-pointer"
                   >
                     <div className="flex flex-row items-center">
-                      {user.name}{" "}
-                      <img
-                        className="h-10 w-auto"
-                        src={imageSignOut}
-                        alt="Logo"
-                      />
+                      <div className="w-[30px] h-[30px] flex items-center justify-center rounded-full border-2 text-black font-bold bg-white border-white">
+                          {user.name[0]}
+                      </div>
+                      <div className="w-[10px]">
+
+                      </div>
+                      <FiLogOut className="text-2xl"/>
                     </div>
                   </span>
                 </li>
@@ -259,8 +272,7 @@ const Menu = () => {
                   }}
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-white md:hover:text-[#75E6DA] hover:bg-gray-700 hover:text-white md:hover:bg-transparent hover:cursor-pointer "
                 >
-                  Signout{" "}
-                  <img className="h-10 w-auto" src={imageSignOut} alt="Logo" />
+                  <FiLogOut className="text-2xl mx-auto"/>
                 </span>
               </li>
             )}

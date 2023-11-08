@@ -8,8 +8,8 @@ import {
 } from "./helper/adminapicall";
 import { isAuthenticated } from "../auth/helper/index";
 
-const UpdateProduct = () => {
-  const { productId } = useParams();
+const UpdateProduct = ({productId}) => {
+  // const { productId } = useParams();
   const [values, setValues] = useState({
     name: "",
     description: "",
@@ -145,7 +145,7 @@ const UpdateProduct = () => {
 
   const createProductForm = () => (
     <form>
-      <span className="text-2xl font-bold text-[#05445E] mb-4">Post photo</span>
+      <span className="text-2xl font-bold text-white mb-4">Post photo</span>
       <div>
         <label>
           <input
@@ -223,27 +223,12 @@ const UpdateProduct = () => {
   );
 
   return (
-    <Base
-      title="Add a product here!"
-      description="Welcome to product creation section"
-      className=" p-8 bg-[#189AB4] mx-auto w-3/4 mt-8 mb-4 rounded-md"
-    >
       <div className="">
-        <div>
-          <button className="px-4 py-2 text-[#05445E] bg-[#75E6DA] mb-4 font-bold rounded-md hover:bg-[#05445E] hover:text-white">
-            <Link to="/admin/dashboard">Admin Home</Link>
-          </button>
-        </div>
-        <div className="  bg-[#75E6DA] rounded-md p-4">
-          <div className="mx-40 text-white ">
             {successMessage()}
             {warningMessage()}
             {count == 1 && <Navigate to="/admin/dashboard" />}
             {createProductForm()}
-          </div>
-        </div>
       </div>
-    </Base>
   );
 };
 

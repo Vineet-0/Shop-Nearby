@@ -11,16 +11,6 @@ const AddCategory = () => {
 
   const { user, token } = isAuthenticated();
 
-  const goBack = () => {
-    return (
-      <div className="mt-5 mx-40">
-        <button className="px-4 py-2 text-white bg-[#05445E] mb-3 font-bold rounded-md hover:bg-[#189AB4]">
-          <Link to="/admin/dashboard">Admin Home</Link>
-        </button>
-      </div>
-    );
-  };
-
   const handleChange = (event) => {
     setError("");
     setName(event.target.value);
@@ -69,9 +59,9 @@ const AddCategory = () => {
 
   const myCategoryForm = () => {
     return (
-      <form className="mx-40">
+      <form className="">
         <div>
-          <p className="text-2xl font-bold text-[#05445E] mb-4">Enter the category</p>
+          <p className="text-2xl font-bold text-white mb-4">Enter the category</p>
           <input
             type="text"
             className="block border w-full text-[#05445E] border-[#05445E] my-3 px-4 py-2 rounded mb-4"
@@ -83,7 +73,7 @@ const AddCategory = () => {
           />
           <button
             onClick={onSubmit}
-            className="px-4 py-2 text-white bg-[#05445E] font-bold rounded-md hover:bg-[#189AB4]"
+            className="px-4 py-2 text-white bg-[#05445E] font-bold rounded-md hover:bg-[#75E6DA] hover:text-[#05445E]"
           >
             Create Category
           </button>
@@ -93,18 +83,11 @@ const AddCategory = () => {
   };
 
   return (
-    <Base
-      title="Create a category here"
-      description="Add an category here"
-      className="p-8 bg-[#189AB4] mx-auto w-3/4 mt-8 mb-4 rounded-md"
-    >
-      <div className="p-4 bg-[#75E6DA] rounded-md">
+      <div className="bg-[#189AB4] p-8">
         {successMessage()}
         {warningMessage()}
         {myCategoryForm()}
-        {goBack()}
       </div>
-    </Base>
   );
 };
 

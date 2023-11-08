@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-icons": "^4.11.0",
     "swiper": "^10.0.4"
   }
 }

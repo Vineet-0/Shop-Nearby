@@ -63,7 +63,7 @@ const Card = ({
           <ImageHelper product={product} />
         </Link>
       </div>
-      <div className="mx-auto mb-5">
+      <div className="mx-auto mb-5 z-10">
         <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-black">
           {product.name}
         </h5>
