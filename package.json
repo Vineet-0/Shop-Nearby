@@ -1,6 +1,13 @@
 {
+  "name": "findbest",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "react-icons": "^4.11.0",
     "swiper": "^10.0.4"
-  }
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
 }
