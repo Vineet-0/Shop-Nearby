@@ -10,11 +10,17 @@ import AddProduct from "../admin/AddProduct";
 import ManageProducts from "../admin/ManageProducts";
 
 const AdminDashBoard = () => {
-  const {
-    user: { name, email, role },
-  } = isAuthenticated();
+  const auth = isAuthenticated();
+  const { user } = auth;
 
-  const [activeOption, setActiveOption] = React.useState("Admin Navigation");
+  if (!user) {
+    // Handle the case when the user is not authenticated
+    return <div>User not authenticated</div>;
+  }
+
+  const { name, email, role } = user;
+
+  const [activeOption, setActiveOption] = React.useState("Admin Information");
 
   const AdminLeftSide = () => {
     const handleSetActive = (option) => {
@@ -26,7 +32,7 @@ const AdminDashBoard = () => {
       "Create Category",
       "Manage Categories",
       "Create Product",
-      "Manage Products",
+      "Manage Products"
     ];
 
     return (
@@ -61,7 +67,7 @@ const AdminDashBoard = () => {
       case "Manage Products":
         return <ManageProducts />;
       default:
-        return null;
+        return <h2>NOT FOUND</h2>;
     }
   };
 
